@@ -51,45 +51,25 @@ class SafetyFlag(BaseModel):
 
 
 # === GRAPH STATE SCHEMA (what flows through nodes) ===
+
 class RxGuardState(TypedDict):
-    """The canonical state passed through every node in your clinical agent."""
-    # === INPUT (set at entry) ===
-    raw_note: str = Field(
-        default="", 
-        description="Original clinical note text from user."
-    )
-    # === EXTRACTED DATA (populated by understanding node) ===
-    patient_profile: Optional[Dict[str, Any]] = Field(
-        default=None, 
-        description="Structured patient data extracted from raw_note."
-    )
-    proposed_medication: Optional[Dict[str, Any]] = Field(
-        default=None, 
-        description="Medication recommendations with safety checks."
-    )
-    confidence: Optional[float] = Field(
-        default=None, 
-        description="Confidence level of the extraction."
-    )
-    # === WORK PRODUCTS (populated by medication node) ===
-    retrieved_guidelines: Optional[List[Dict[str, Any]]] = Field(
-        default=None, 
-        description="Guidelines retrieved from RAG."
-    )
-    # === SAFETY & VALIDATION (populated by risk node) ===
-    risk_analysis: Optional[Dict[str, Any]] = Field(
-        default=None, 
-        description="Risk analysis of proposed medication."
-    )
-    # === SAFETY & VALIDATION (populated by risk node) ===
-    safety_flag: Optional[Dict[str, Any]] = Field(
-        default=None, 
-        description="Safety flag from safety critic node."
-    )
-    # === OUTPUT (populated by finalizer node) ===
-    final_report: Optional[Dict[str, Any]] = Field(
-        default=None, 
-        description="Final formatted response for user."
-    )
+    """State passed through clinical agent nodes."""
+    # Input
+    raw_note: str
+    
+    # Extracted data
+    patient_profile: dict[str, Any] | None
+    proposed_medication: dict[str, Any] | None
+    confidence: float | None
+    
+    # Work products
+    retrieved_guidelines: list[dict[str, Any]] | None
+    
+    # Safety validation
+    risk_analysis: dict[str, Any] | None
+    safety_flag: dict[str, Any] | None
+    
+    # Output
+    final_report: dict[str, Any] | None
 
 state = RxGuardState()

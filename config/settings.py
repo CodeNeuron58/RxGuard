@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     )
     
     # === LLM CONFIGURATION ===
-    GROQ_API_KEY: str = Field(description="Groq API key")
+    GROQ_API_KEY: str = Field(...,description="Groq API key")
     model_name: str = "openai/gpt-oss-120b"
     temperature: float = 0.1  # Low for clinical precision
     max_tokens: int = 2000
