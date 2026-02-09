@@ -17,23 +17,23 @@ class Settings(BaseSettings):
     )
     
     # === LLM CONFIGURATION ===
-    GROQ_API_KEY: str = Field(...,description="Groq API key")
+    GROQ_API_KEY: str = Field(default="",description="Groq API key")
     model_name: str = "openai/gpt-oss-120b"
     temperature: float = 0.1  # Low for clinical precision
     max_tokens: int = 2000
     
-    # # === CLINICAL SAFETY ===
-    # max_iterations: int = 3  # Hard limit on agent loops
-    # require_medication_rationale: bool = True  # Must explain why
-    # contraindication_check_enabled: bool = True  # Safety feature
+    # === CLINICAL SAFETY ===
+    max_iterations: int = 3  # Hard limit on agent loops
+    require_medication_rationale: bool = True  # Must explain why
+    contraindication_check_enabled: bool = True  # Safety feature
     
-    # # === OBSERVABILITY ===
-    # log_level: str = "INFO"  # DEBUG for troubleshooting
-    # langsmith_api_key: str | None = None
-    # langsmith_project: str = "clinical-agent-dev"
+    # === OBSERVABILITY ===
+    log_level: str = "INFO"  # DEBUG for troubleshooting
+    langsmith_api_key: str | None = None
+    langsmith_project: str = "clinical-agent-dev"
     
-    # # === ENVIRONMENT ===
-    # environment: str = "development"  # development, staging, production
+    # === ENVIRONMENT ===
+    environment: str = "development"  # development, staging, production
 
 
 @lru_cache()
