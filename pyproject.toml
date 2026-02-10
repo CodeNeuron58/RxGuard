@@ -11,9 +11,35 @@ dependencies = [
     "dotenv>=0.9.9",
     "langchain-community",
     "langchain-groq",
+    "pypdf>=6.6.2",
+    "sentence-transformers>=5.2.2",
+    "faiss-cpu>=1.13.2",
+    "structlog>=25.5.0",
+    "pydantic>=2.12.2",
+    "pydantic-settings>=2.6.2",
+    "pyyaml>=6.0",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.27.0",
+    "fastapi-cli>=0.0.2",
 ]
 
 [dependency-groups]
 dev = [
     "ipykernel>=7.1.0",
 ]
+
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.6.0",
+    "mypy>=1.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+strict = true
