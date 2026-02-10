@@ -3,7 +3,7 @@
 from langgraph.graph import StateGraph, START, END
 
 from src.agentic.graph.edges.conditionals import confidence_gate
-from src.agentic.graph.nodes.context_extraction import context_extraction_node
+from src.agentic.graph.nodes.extract_profile import extract_patient_profile
 from src.agentic.graph.nodes.guideline_retrieval import guideline_retrieval_node
 from src.agentic.graph.nodes.risk_reasoning import risk_reasoning_node
 from src.agentic.graph.nodes.safety_critic import safety_critic_node
@@ -26,7 +26,7 @@ def build_graph() -> StateGraph:
     graph = StateGraph(RxGuardState)
     
     # Add nodes
-    graph.add_node("extract", context_extraction_node)
+    graph.add_node("extract", extract_patient_profile)
     graph.add_node("retrieve", guideline_retrieval_node)
     graph.add_node("reason", risk_reasoning_node)
     graph.add_node("critic", safety_critic_node)
