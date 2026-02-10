@@ -1,10 +1,10 @@
 """Node 1: Clinical context extraction node: Parses raw clinical notes into structured data."""
 
-from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import PydanticOutputParser
 from src.agentic.state.schemas import RxGuardState, ExtractionResult
 from config.settings import settings
+from src.agentic.agents.base import get_llm
 from src.agentic.utils import get_logger, log_clinical_event
 
 logger = get_logger(__name__)
@@ -13,9 +13,7 @@ logger = get_logger(__name__)
 CONFIDENCE_THRESHOLD = 0.75
 
 # Initialize LLM
-llm = ChatGroq(model=settings.model_name,
-               temperature=settings.temperature,
-               api_key=settings.GROQ_API_KEY)
+llm = get_llm()
 
 # === PROMPT ENGINEERING ===
 parser = PydanticOutputParser(pydantic_object=ExtractionResult)
