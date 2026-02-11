@@ -103,5 +103,3 @@ A clean, modular architecture designed for scalability.
 *   `data/`: Knowledge base and vector stores.
 
 ---
-
-*Built for the MedGemma Impact Challenge 2025.*
