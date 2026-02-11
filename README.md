@@ -1,6 +1,10 @@
 # 🛡️ Clinical Medication Safety Agent (RxGuard)
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+
 **RxGuard** is an advanced AI copilot designed to prevent medication errors in real-time. By combining the reasoning power of **Llama 3.3 (via Groq)** with **Retrieval-Augmented Generation (RAG)**, it cross-references patient data against authoritative clinical guidelines to ensure safe prescribing decisions.
+
+> **Note:** This is the official **Version 1.0** release of RxGuard.
 
 ---
 
