@@ -124,21 +124,29 @@ def render_report(result: dict):
     
     # Evidence section
     st.subheader("📚 Guideline Evidence")
-    if report["guideline_evidence"]:
-        for evidence in report["guideline_evidence"]:
-            st.markdown(f"""
-                <div style="
-                    background-color: #f8f9fa;
-                    padding: 12px;
-                    border-radius: 8px;
-                    margin: 8px 0;
-                    border-left: 4px solid #007bff;
-                ">
-                    📄 {evidence}
-                </div>
-            """, unsafe_allow_html=True)
+    if report.get("guideline_evidence"):
+        for i, evidence in enumerate(report["guideline_evidence"], 1):
+            # Handle both object and dict formats
+            if hasattr(evidence, 'source'):
+                source = evidence.source
+                page = evidence.page
+            elif isinstance(evidence, dict):
+                source = evidence.get('source', 'Unknown Source')
+                page = evidence.get('page', 0)
+            else:
+                source = str(evidence)
+                page = None
+            
+            # Clean up source path for display
+            display_source = Path(source).name if source else "Unknown"
+            
+            with st.container():
+                st.markdown(f"**{i}. {display_source}** (Page {page})")
+                # If there's a snippet or summary in the future, add it here
+                st.caption(f"Source: `{source}`")
+                st.divider()
     else:
-        st.caption("No specific citations available")
+        st.info("No specific citations available for this finding.")
     
     # Raw data expander
     with st.expander("🔧 View Technical Details"):
