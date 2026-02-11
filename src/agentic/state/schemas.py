@@ -72,4 +72,16 @@ class RxGuardState(TypedDict):
     # Output
     final_report: dict[str, Any] | None
 
-state = RxGuardState()
+
+def create_initial_state(raw_note: str) -> RxGuardState:
+    """Create initial state with default None values."""
+    return {
+        "raw_note": raw_note,
+        "patient_profile": None,
+        "proposed_medication": None,
+        "confidence": None,
+        "retrieved_guidelines": None,
+        "risk_analysis": None,
+        "safety_flag": None,
+        "final_report": None
+    }
