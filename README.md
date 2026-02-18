@@ -1,75 +1,68 @@
-# 🛡️ Clinical Medication Safety Agent (RxGuard)
+# 🛡️ RxGuard: Agentic Medication Safety Copilot
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
 
-**RxGuard** is an advanced AI copilot designed to prevent medication errors in real-time. By combining the reasoning power of **Llama 3.3 (via Groq)** with **Retrieval-Augmented Generation (RAG)**, it cross-references patient data against authoritative clinical guidelines to ensure safe prescribing decisions.
-
-> **Note:** This is the official **Version 1.0** release of RxGuard.
+**RxGuard** is an intelligent clinical agent designed to prevent medication errors by "thinking before it speaks." Unlike varying chatbots, RxGuard uses a **Reflexive Agent Architecture** to retrieve guidelines, reason about risks, and—crucially—**critique and correct its own analysis** before alerting the clinician.
 
 ---
 
-## 🚀 The Problem & Solution
+## 🚀 The "Agentic" Difference
 
-**The Challenge:** Medication errors are a leading cause of patient harm globally. Clinicians often lack immediate access to patient-specific contraindications within their workflow.
+Traditional clinical decision support systems are linear: `Input -> Rules -> Alert`. They fail when rules are ambiguous or patient context is complex.
 
-**The Solution:** RxGuard acts as a seamless safety layer. It understands clinical context, retrieves guidelines (WHO, NICE), and reasons about potential risks—delivering critical insights in seconds.
+**RxGuard is cyclic.** It mimics a senior pharmacist's thought process:
+1.  **Read:** Understands the patient's full context (e.g., "Stage 3 CKD").
+2.  **Research:** Dynamically generates search queries for relevant guidelines.
+3.  **Reason:** Analyzes risks (e.g., "NSAIDs cause afferent arteriole vasoconstriction").
+4.  **Reflect:** A "Safety Critic" node reviews the analysis. IF the evidence is weak, it **rejects** the finding and sends the agent back to do more research.
 
 ---
 
 ## 🏗️ System Architecture
 
-RxGuard employs a **multi-agent workflow** orchestrated by LangGraph to ensure accuracy and reduce hallucinations.
+RxGuard employs a **stateful, cyclic multi-agent workflow** orchestrated by [LangGraph](https://langchain-ai.github.io/langgraph/).
 
 ```mermaid
 graph TD
-    A[Start: Clinical Note] --> B(Node: Extract Patient Profile)
-    B --> C{Confidence Check}
-    C -- High Confidence --> D[Node: Retrieve Guidelines]
-    C -- Low Confidence --> E[End: Stop & Warn]
-    D --> F[Node: Risk Reasoning]
-    F --> G[Node: Safety Critic]
-    G --> H[Node: Final Safety Report]
-    H --> I((End))
+    Start(Clinical Note) --> Extract[Node: Extract Context]
+    Extract --> Router{Router}
+    
+    Router -- "Need Info / Retry" --> Retrieve[Node: Dynamic Guideline Search]
+    Retrieve --> Reason[Node: Risk Reasoning]
+    Reason --> Critic[Node: Safety Critic]
+    
+    Critic -- "REJECT (Missing Citations)" --> Router
+    Critic -- "APPROVE" --> Report[Node: Final Safety Report]
+    
+    Router -- "Max Attempts Reached" --> Report
+    Report --> End((End))
 ```
 
-### 🧠 Core Components
+### 🧠 Core Agents
 
-1.  **Context Extraction (`extraction_node`)**:
-    *   Uses LLMs to parse unstructured text into strict **Pydantic models**.
-    *   Extracts Age, Conditions (e.g., CKD Stage 3), and Current Medications.
-
-2.  **Guideline Retrieval (RAG)**:
-    *   Vector search (FAISS) finds relevant clinical guidelines based on the specific patient condition and proposed drug.
-    *   *Source:* WHO, NICE, and specialized treatment protocols.
-
-3.  **Risk Reasoning Engine**:
-    *   Acts as a "Clinical Pharmacist" agent.
-    *   Analyzes the **mechanism of action** (e.g., "NSAIDs constrict afferent arterioles...").
-    *   Assigns a risk level: **Low**, **Moderate**, or **High**.
-
-4.  **Safety Critic**:
-    *   A second-pass agent that critiques the reasoning.
-    *   Filters out minor issues and flags only **escalation-level** safety concerns to prevent alert fatigue.
+1.  **Router Node**: The traffic controller. It tracks the "Research Log" and prevents infinite loops. If the agent fails to find a safe answer after 3 attempts, it forces a "WARNING" state to ensure patient safety.
+2.  **Guideline Retriever**: Not just a vector search. It uses an LLM to **generate targeted queries** based on the Critic's feedback (e.g., *"Find renal dosing specific to elderly males"*).
+3.  **Risk Reasoning Engine**: The clinical logic core. Applies physiological mechanisms to patient data.
+4.  **Safety Critic**: The gatekeeper. It strictly enforces that every claim must have a citation.
 
 ---
 
 ## ✨ Key Features
 
-*   **Context-Aware Analysis**: Automatically extracts key data points without manual entry.
-*   **Evidence-Based Safety Checks**: Every alert is backed by a specific citation (Source & Page Number).
-*   **Structured Outputs**: Returns strictly typed JSON data for easy integration into EHR systems.
-*   **High-Speed Inference**: Powered by **Groq** for near-instantaneous (<1s) clinical feedback.
+*   **Self-Correcting Loops**: If the agent initially misses a contraindication, the Critic forces a re-evaluation.
+*   **Dynamic Tool Use**: The system generates its own queries, allowing it to "investigate" complex cases.
+*   **Transparent Thought Process**: The UI shows the agent's "Research Log," so clinicians can trust the output.
+*   **Edge-Ready Design**: Architected to swap the reasoning brain with **MedGemma 2B/7B (Quantized)** for local deployment.
 
 ---
 
-## 🛠️ Built With
+## 🛠️ Tech Stack
 
-*   **Orchestration**: [LangGraph](https://langchain-ai.github.io/langgraph/) & [LangChain](https://www.langchain.com/) for stateful multi-agent flows.
-*   **LLM Inference**: [Groq](https://groq.com/) (Llama 3.3 70B) for speed and reasoning.
-*   **Validation**: [Pydantic](https://docs.pydantic.dev/) for enforcing strict data schemas.
-*   **Vector Search**: [FAISS](https://github.com/facebookresearch/faiss) & [HuggingFace Embeddings](https://huggingface.co/).
-*   **Frontend**: [Streamlit](https://streamlit.io/) for the demo interface.
-*   **Package Management**: [uv](https://github.com/astral-sh/uv) (Astral) for lightning-fast dependency resolution.
+*   **Orchestration**: [LangGraph](https://langchain-ai.github.io/langgraph/) (Cyclic StateGraph).
+*   **Reasoning**: Llama 3.3 70B (via Groq) / MedGemma Ready.
+*   **Validation**: [Pydantic](https://docs.pydantic.dev/) (Strict Output Schemas).
+*   **Retrieval**: FAISS + HuggingFace Embeddings.
+*   **UI**: Streamlit (with Custom "Thought Trace" Component).
 
 ---
 
@@ -82,24 +75,28 @@ Get the application running in minutes.
 git clone https://github.com/CodeNeuron58/RxGuard.git
 cd RxGuard
 
-# 2. Sync dependencies
+# 2. Sync dependencies (using uv)
 uv sync
 
-# 3. Run the application
+# 3. Set your API Key
+# Create a .env file with: GROQ_API_KEY=your_key_here
+
+# 4. Run the application
 streamlit run src/app.py
 ```
 
-> **Note:** You will need a valid `GROQ_API_KEY` in your `.env` file.
-
 ---
 
-### 📂 Project Structure
+## 📂 Project Structure
 
-A clean, modular architecture designed for scalability.
-
-*   `src/agentic/graph`: Core LangGraph nodes and edge definitions.
-*   `src/agentic/state`: Pydantic schemas defining the data flow.
-*   `src/ui`: Streamlit interface components.
-*   `data/`: Knowledge base and vector stores.
-
----
+```
+src/
+├── agentic/
+│   ├── graph/          # LangGraph Nodes & Edges
+│   │   ├── nodes/      # Router, Critic, Reasoning, Retrieval
+│   │   └── builder.py  # The Cyclic Graph Compiler
+│   ├── state/          # Pydantic Schemas (Memory, Logs)
+│   └── agents/         # LLM Interface
+├── ui/                 # Streamlit Components
+└── app.py              # Main Application Entrypoint
+```
