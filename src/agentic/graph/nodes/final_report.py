@@ -38,6 +38,10 @@ def generate_clinical_report(patient_profile, proposed_medication, risk_analysis
             else:
                 evidence_list.append(str(e))
 
+        # ESCALATION: If risk is HIGH, always flag as CRITICAL
+        if risk_level == "High":
+            flag_level = "CRITICAL"
+
     return {
         "alert_level": flag_level,
         "patient_context": (

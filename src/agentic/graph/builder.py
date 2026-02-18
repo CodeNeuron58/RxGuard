@@ -1,10 +1,12 @@
+
 """Graph Builder: Compiles LangGraph with all nodes and edges."""
 
 from langgraph.graph import StateGraph, START, END
 
 from src.agentic.graph.edges.conditionals import confidence_gate
 from src.agentic.graph.nodes.extract_profile import extract_patient_profile
-from src.agentic.graph.nodes.guideline_retrieval import guideline_retrieval_node
+from src.agentic.graph.nodes.planner import planner_node
+from src.agentic.graph.nodes.research_agent import research_agent_node
 from src.agentic.graph.nodes.risk_reasoning import risk_reasoning_node
 from src.agentic.graph.nodes.safety_critic import safety_critic_node
 from src.agentic.graph.nodes.final_report import final_report_node
@@ -14,6 +16,16 @@ from src.agentic.utils.logging_config import get_logger
 
 logger = get_logger(__name__)
 
+
+def route_research_loop(state: RxGuardState):
+    """Loop between Planner and Research Agent until all steps are done."""
+    plan = state.get("plan", [])
+    current_index = state.get("current_step_index", 0)
+    
+    if current_index < len(plan):
+        return "research"
+    else:
+        return "reason"
 
 def build_graph() -> StateGraph:
     """Build and compile the RxGuard clinical agent graph.
@@ -29,7 +41,8 @@ def build_graph() -> StateGraph:
     # Add nodes
     graph.add_node("extract", extract_patient_profile)
     graph.add_node("router", router_node)
-    graph.add_node("retrieve", guideline_retrieval_node)
+    graph.add_node("planner", planner_node)
+    graph.add_node("research", research_agent_node)
     graph.add_node("reason", risk_reasoning_node)
     graph.add_node("critic", safety_critic_node)
     graph.add_node("report", final_report_node)
@@ -49,17 +62,30 @@ def build_graph() -> StateGraph:
     )
     
     # Router Logic (Check attempts)
+    # Router -> Planner (Start of a new attempt/cycle)
     graph.add_conditional_edges(
         "router",
         route_after_router,
         {
-            "retrieve": "retrieve",
+            "retrieve": "planner", # CHANGED: Router now points to Planner
             "report": "report"
         }
     )
     
-    # Linear steps in the loop
-    graph.add_edge("retrieve", "reason")
+    # Planner -> Research (Start)
+    graph.add_edge("planner", "research")
+    
+    # Research -> Research (Loop) OR Reason (Done)
+    graph.add_conditional_edges(
+        "research",
+        route_research_loop,
+        {
+            "research": "research", # Next step
+            "reason": "reason"      # Done
+        }
+    )
+    
+    # Reason -> Critic
     graph.add_edge("reason", "critic")
     
     # Critic Logic (Approve or Reject/Loop)
@@ -67,7 +93,7 @@ def build_graph() -> StateGraph:
         "critic",
         route_after_critic,
         {
-            "router": "router",  # Go back to router to increment attempt
+            "router": "router",  # Go back to router to increment attempt (re-plan if needed)
             "report": "report"
         }
     )

@@ -38,10 +38,12 @@ class EvidenceCitation(BaseModel):
 
 class RiskAnalysis(BaseModel):
     """Risk analysis of proposed medication."""
+    risk_level: Literal["Low", "Moderate", "High"] = Field(
+        description="The overall risk level (Low/Moderate/High)."
+    )
     summary: str
     mechanism: str
     evidence: List[EvidenceCitation]
-    risk_level: Literal["low", "moderate", "high"]
 
 
 class SafetyFlag(BaseModel):
@@ -57,50 +59,67 @@ class CritiqueResult(BaseModel):
     safety_flag: Optional[SafetyFlag] = None
 
 
-
 # === GRAPH STATE SCHEMA (what flows through nodes) ===
 
+class EvidenceItem(BaseModel):
+    """Structured evidence found during research."""
+    fact: str = Field(description="The specific medical fact found.")
+    source: str = Field(description="The source of the fact (e.g. 'KDIGO 2024, p.12').")
+    relevance: str = Field(description="Why this fact is relevant to the plan.")
+    confidence: str = Field(description="Confidence in this fact (High/Medium/Low).")
+
+class PlanStep(BaseModel):
+    """A step in the research plan."""
+    id: int
+    description: str = Field(description="What needs to be researched.")
+    status: Literal["pending", "in_progress", "complete"] = "pending"
+    result: Optional[str] = None
+
 class RxGuardState(TypedDict):
-    """State passed through clinical agent nodes."""
+    """Reflexive Graph State (Agent Memory)."""
+    
     # Input
     raw_note: str
     
-    # Extracted data
-    patient_profile: dict[str, Any] | None
-    proposed_medication: dict[str, Any] | None
-    confidence: float | None
+    # Context
+    patient_profile: dict
+    proposed_medication: dict
+    confidence: float
     
-    # Work products
-    retrieved_guidelines: list[dict[str, Any]] | None
+    # Agency
+    plan: List[PlanStep]
+    current_step_index: int
     
-    # Safety validation
-    risk_analysis: dict[str, Any] | None
-    safety_flag: dict[str, Any] | None
+    # Memory
+    evidence: List[EvidenceItem]
+    research_log: List[str]  # Human-readable log for UI
     
-    # Output
-    final_report: dict[str, Any] | None
-
-    # === Reflexive Agent Memory ===
-    research_log: List[str]    # History of search queries & results
-    attempts: int              # Circuit breaker (max 3 loops)
-    critique_feedback: str | None # Feedback from Critic node
-    missing_info_flag: bool    # Signal to trigger "More Research"
+    # Analysis
+    critique_feedback: Optional[str]
+    risk_analysis: Optional[dict]
+    safety_flag: Optional[dict]
+    final_report: Optional[dict]
+    
+    # Control
+    attempts: int
+    missing_info_flag: bool
 
 
 def create_initial_state(raw_note: str) -> RxGuardState:
-    """Create initial state with default None values."""
+    """Create initial state with default values."""
     return {
         "raw_note": raw_note,
-        "patient_profile": None,
-        "proposed_medication": None,
-        "confidence": None,
-        "retrieved_guidelines": [],  # Initialize as empty list
+        "patient_profile": {},
+        "proposed_medication": {},
+        "confidence": 0.0,
+        "plan": [],
+        "current_step_index": 0,
+        "evidence": [],
+        "research_log": [],
+        "critique_feedback": None,
         "risk_analysis": None,
         "safety_flag": None,
         "final_report": None,
-        # Initialize memory
-        "research_log": [],
         "attempts": 0,
-        "critique_feedback": None,
         "missing_info_flag": False
     }

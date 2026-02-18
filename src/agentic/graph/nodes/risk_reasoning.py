@@ -41,38 +41,37 @@ risk_chain = risk_prompt | llm | risk_parser
 
 
 def risk_reasoning_node(state: RxGuardState) -> RxGuardState:
-    """Analyze clinical risks based on patient, medication, and guidelines.
+    """Analyze clinical risks based on patient, medication, and structured LINKED evidence.
     
     Args:
-        state: Current graph state with retrieved_guidelines, patient_profile, 
-               and proposed_medication
-        
+        state: Current graph state with 'evidence' (List[EvidenceItem])
+    
     Returns:
         Updated state with risk_analysis
     """
-    logger.info("--- RISK REASONING ---")
+    logger.info("--- RISK REASONING (Structured) ---")
     
-    # Format guideline excerpts for the prompt
-    guideline_text = "\n\n".join(
-        f"Source: {g['source']}, Page: {g['page']}\n{g['content']}"
-        for g in state["retrieved_guidelines"]
+    evidence_items = state.get("evidence", [])
+    
+    # Format evidence as a structured list for the LLM
+    evidence_text = "\n".join(
+        f"- Fact: {e.fact} (Source: {e.source}, Confidence: {e.confidence})"
+        for e in evidence_items
     )
+    
+    if not evidence_items:
+        evidence_text = "No specific guidelines found. Rely on general medical knowledge but flag as low confidence."
     
     # Run risk analysis
     risk = risk_chain.invoke({
         "patient_context": state["patient_profile"],
         "medication_context": state["proposed_medication"],
-        "guideline_text": guideline_text,
+        "guideline_text": evidence_text,
         "format_instructions": risk_parser.get_format_instructions()
     })
     
-    # Store result as dict
+    # Store result
     state["risk_analysis"] = risk.model_dump()
     
-    logger.info(
-        "Risk analysis complete",
-        risk_level=risk.risk_level,
-        summary=risk.summary[:100] + "..."
-    )
-    
+    logger.info(f"Risk Level: {risk.risk_level}")
     return state
