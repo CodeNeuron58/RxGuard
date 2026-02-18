@@ -50,6 +50,14 @@ class SafetyFlag(BaseModel):
     reason: str
 
 
+class CritiqueResult(BaseModel):
+    """Structured output from the Safety Critic."""
+    decision: Literal["APPROVE", "REJECT"]
+    feedback: str = Field(description="Specific feedback on what is missing or incorrect.")
+    safety_flag: Optional[SafetyFlag] = None
+
+
+
 # === GRAPH STATE SCHEMA (what flows through nodes) ===
 
 class RxGuardState(TypedDict):
@@ -72,6 +80,12 @@ class RxGuardState(TypedDict):
     # Output
     final_report: dict[str, Any] | None
 
+    # === Reflexive Agent Memory ===
+    research_log: List[str]    # History of search queries & results
+    attempts: int              # Circuit breaker (max 3 loops)
+    critique_feedback: str | None # Feedback from Critic node
+    missing_info_flag: bool    # Signal to trigger "More Research"
+
 
 def create_initial_state(raw_note: str) -> RxGuardState:
     """Create initial state with default None values."""
@@ -80,8 +94,13 @@ def create_initial_state(raw_note: str) -> RxGuardState:
         "patient_profile": None,
         "proposed_medication": None,
         "confidence": None,
-        "retrieved_guidelines": None,
+        "retrieved_guidelines": [],  # Initialize as empty list
         "risk_analysis": None,
         "safety_flag": None,
-        "final_report": None
+        "final_report": None,
+        # Initialize memory
+        "research_log": [],
+        "attempts": 0,
+        "critique_feedback": None,
+        "missing_info_flag": False
     }
