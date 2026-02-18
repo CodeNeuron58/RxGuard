@@ -8,6 +8,7 @@ from src.agentic.graph.nodes.guideline_retrieval import guideline_retrieval_node
 from src.agentic.graph.nodes.risk_reasoning import risk_reasoning_node
 from src.agentic.graph.nodes.safety_critic import safety_critic_node
 from src.agentic.graph.nodes.final_report import final_report_node
+from src.agentic.graph.nodes.router import router_node, route_after_router, route_after_critic
 from src.agentic.state.schemas import RxGuardState
 from src.agentic.utils.logging_config import get_logger
 
@@ -20,13 +21,14 @@ def build_graph() -> StateGraph:
     Returns:
         Compiled LangGraph application
     """
-    logger.info("Building RxGuard graph...")
+    logger.info("Building RxGuard REFLEXIVE graph...")
     
     # Initialize graph with state schema
     graph = StateGraph(RxGuardState)
     
     # Add nodes
     graph.add_node("extract", extract_patient_profile)
+    graph.add_node("router", router_node)
     graph.add_node("retrieve", guideline_retrieval_node)
     graph.add_node("reason", risk_reasoning_node)
     graph.add_node("critic", safety_critic_node)
@@ -36,19 +38,40 @@ def build_graph() -> StateGraph:
     graph.add_edge(START, "extract")
     
     # Conditional edge: confidence check
+    # If high confidence -> Start the Loop (via Router to init attempts)
     graph.add_conditional_edges(
         "extract",
         confidence_gate,
         {
-            "retrieve": "retrieve",
+            "retrieve": "router",  # Start the loop
             "stop": END
         }
     )
     
-    # Linear flow after confidence check passes
+    # Router Logic (Check attempts)
+    graph.add_conditional_edges(
+        "router",
+        route_after_router,
+        {
+            "retrieve": "retrieve",
+            "report": "report"
+        }
+    )
+    
+    # Linear steps in the loop
     graph.add_edge("retrieve", "reason")
     graph.add_edge("reason", "critic")
-    graph.add_edge("critic", "report")
+    
+    # Critic Logic (Approve or Reject/Loop)
+    graph.add_conditional_edges(
+        "critic",
+        route_after_critic,
+        {
+            "router": "router",  # Go back to router to increment attempt
+            "report": "report"
+        }
+    )
+    
     graph.add_edge("report", END)
     
     # Compile

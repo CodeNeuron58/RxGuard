@@ -72,6 +72,31 @@ def run_clinical_analysis(raw_note: str):
         return None
 
 
+def render_thought_process(result: dict):
+    """Render the agent's internal thought process (Research & Critique)."""
+    
+    with st.expander("🧠 Agent Thought Process (Trace)", expanded=True):
+        # 1. Attempts
+        attempts = result.get("attempts", 0)
+        st.write(f"**Cycles/Attempts:** {attempts}")
+        
+        # 2. Research Log
+        logs = result.get("research_log", [])
+        if logs:
+            st.markdown("### 🔎 Research History")
+            for i, log in enumerate(logs, 1):
+                st.markdown(f"**Step {i}:** `{log}`")
+        
+        # 3. Critique Feedback
+        feedback = result.get("critique_feedback")
+        if feedback and feedback != "APPROVE":
+            st.markdown("### 🛡️ Safety Critic Feedback")
+            st.error(f"**Rejected previous analysis:** {feedback}")
+        elif feedback == "APPROVE":
+            st.markdown("### 🛡️ Safety Critic Feedback")
+            st.success("Analysis Approved ✅")
+
+
 def render_report(result: dict):
     """Render clinical report."""
     report = result.get("final_report")
@@ -107,6 +132,9 @@ def render_report(result: dict):
         </div>
     """, unsafe_allow_html=True)
     
+    # Render Thought Process First
+    render_thought_process(result)
+    
     # Two columns layout
     col1, col2 = st.columns(2)
     
@@ -115,8 +143,8 @@ def render_report(result: dict):
         st.info(report["patient_context"])
         
         st.subheader("✅ Confidence")
-        conf_emoji = "🟢" if report["confidence"] == "High" else "🟡" if report["confidence"] == "Moderate" else "🔴"
-        st.success(f"{conf_emoji} **{report['confidence']}**")
+        conf_emoji = "🟢" if report.get("confidence") == "High" else "🟡" if report.get("confidence") == "Moderate" else "🔴"
+        st.success(f"{conf_emoji} **{report.get('confidence', 'Unknown')}**")
     
     with col2:
         st.subheader("⚠️ Identified Risk")
@@ -126,24 +154,8 @@ def render_report(result: dict):
     st.subheader("📚 Guideline Evidence")
     if report.get("guideline_evidence"):
         for i, evidence in enumerate(report["guideline_evidence"], 1):
-            # Handle both object and dict formats
-            if hasattr(evidence, 'source'):
-                source = evidence.source
-                page = evidence.page
-            elif isinstance(evidence, dict):
-                source = evidence.get('source', 'Unknown Source')
-                page = evidence.get('page', 0)
-            else:
-                source = str(evidence)
-                page = None
-            
-            # Clean up source path for display
-            display_source = Path(source).name if source else "Unknown"
-            
             with st.container():
-                st.markdown(f"**{i}. {display_source}** (Page {page})")
-                # If there's a snippet or summary in the future, add it here
-                st.caption(f"Source: `{source}`")
+                st.markdown(f"**{i}. {evidence}**")
                 st.divider()
     else:
         st.info("No specific citations available for this finding.")
