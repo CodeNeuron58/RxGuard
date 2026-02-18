@@ -17,17 +17,22 @@ critic_prompt = ChatPromptTemplate.from_messages([
     ("human",
      """TASK:
 Review the patient context, proposed medication, and risk analysis.
-Identify whether this case requires escalation due to potential
-serious or irreversible harm.
+Determine if the Risk Analysis is ACCURATE and SUFFICIENT.
 
-RULES:
-- Do NOT repeat the full risk explanation.
-- Do NOT give medical advice.
-- Do NOT suggest alternatives.
-- Flag only significant safety concerns.
-- If no escalation is required, return an empty JSON object.
-- Output must strictly match the JSON schema.
-- Do NOT include any text outside the JSON.
+CRITIQUE GUIDELINES:
+1. **APPROVE** if:
+   - The analysis correctly identifies the key risks (e.g., contraindications, major interactions).
+   - The risk level is appropriate (e.g., "High" for contraindications).
+   - Evidence is cited.
+   
+2. **REJECT** if:
+   - The analysis misses a critical contraindication or warning.
+   - The risk level is too low (e.g., "Low" for a contraindication).
+   - The explanation is factually incorrect.
+
+OUTPUT INSTRUCTIONS:
+- If APPROVE: Set decision to "APPROVE" and safety_flag to the appropriate level (e.g., "critical" for high risk).
+- If REJECT: Set decision to "REJECT" and provide specific feedback on what to fix.
 
 PATIENT CONTEXT:
 {patient_context}

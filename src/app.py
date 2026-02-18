@@ -60,11 +60,51 @@ def run_clinical_analysis(raw_note: str):
         # Get cached app
         app = get_rxguard_app()
         
-        # Run graph
-        with st.spinner("🔬 Analyzing... (this may take 10-20 seconds)"):
-            result = app.invoke(state)
+        final_state = state
         
-        return result
+        # Use a status container for live updates
+        with st.status("🚀 RxGuard Agents Active...", expanded=True) as status:
+            
+            # Run graph with streaming
+            # app.stream yields dictionaries keyed by node name: {'node': state_update}
+            for output in app.stream(state):
+                for node_name, state_update in output.items():
+                    # Update our local view of state
+                    final_state.update(state_update)
+                    
+                    if node_name == "extract_patient_profile":
+                        status.write("✅ Patient Profile Extracted")
+                    
+                    elif node_name == "planner":
+                        cnt = len(state_update.get("plan", []))
+                        status.write(f"✅ Research Plan Created ({cnt} steps)")
+                        
+                    elif node_name == "research_agent":
+                        # Check which step just finished
+                        idx = final_state.get("current_step_index", 0)
+                        # The update happens *after* the step is done, so idx might be next step
+                        # But we can look at the log
+                        log = state_update.get("research_log", [])
+                        if log:
+                            last_log = log[-1]
+                            # Clean up log string for display
+                            display_log = last_log.split(":")[-1].strip()
+                            status.write(f"🔎 Research: {display_log}")
+                            
+                    elif node_name == "risk_reasoning":
+                        risk = state_update.get("risk_analysis", {}).get("risk_level", "Unknown")
+                        status.write(f"🤔 Risk Reasoning Complete (Level: {risk})")
+                        
+                    elif node_name == "safety_critic":
+                        decision = state_update.get("critique_feedback", "")
+                        if decision == "APPROVE":
+                            status.write("🛡️ Safety Critic: APPROVED")
+                        else:
+                            status.write(f"🛡️ Safety Critic: REJECTED (Looping back...)")
+                            
+            status.update(label="✅ Clinical Analysis Complete", state="complete", expanded=False)
+        
+        return final_state
     
     except Exception as e:
         logger.error("Analysis failed", error=str(e))
@@ -78,23 +118,40 @@ def render_thought_process(result: dict):
     with st.expander("🧠 Agent Thought Process (Trace)", expanded=True):
         # 1. Attempts
         attempts = result.get("attempts", 0)
-        st.write(f"**Cycles/Attempts:** {attempts}")
+        st.caption(f"Reasoning Cycles: {attempts}")
         
-        # 2. Research Log
-        logs = result.get("research_log", [])
-        if logs:
-            st.markdown("### 🔎 Research History")
-            for i, log in enumerate(logs, 1):
-                st.markdown(f"**Step {i}:** `{log}`")
+        # 2. Plan Execution (Structured)
+        plan = result.get("plan", [])
+        if plan:
+            st.markdown("### 📋 Research Plan & Execution")
+            for step in plan:
+                # Handle Pydantic model or dict
+                if hasattr(step, "model_dump"):
+                    s_dict = step.model_dump()
+                else:
+                    s_dict = step
+                
+                status_icon = "✅" if s_dict.get("status") == "complete" else "⏳"
+                with st.container():
+                    st.markdown(f"**{status_icon} Step {s_dict.get('id')}:** {s_dict.get('description')}")
+                    if s_dict.get("result"):
+                        st.caption(f"📝 *Findings:* {s_dict.get('result')}")
+                    st.divider()
+        else:
+             # Fallback to legacy log if plan is missing
+            logs = result.get("research_log", [])
+            if logs:
+                st.markdown("### 🔎 Research History (Legacy)")
+                for i, log in enumerate(logs, 1):
+                    st.markdown(f"**Step {i}:** `{log}`")
         
         # 3. Critique Feedback
         feedback = result.get("critique_feedback")
-        if feedback and feedback != "APPROVE":
-            st.markdown("### 🛡️ Safety Critic Feedback")
-            st.error(f"**Rejected previous analysis:** {feedback}")
-        elif feedback == "APPROVE":
-            st.markdown("### 🛡️ Safety Critic Feedback")
-            st.success("Analysis Approved ✅")
+        if feedback:
+            if feedback == "APPROVE":
+                 st.success("🛡️ Safety Critic: Analysis Approved ✅")
+            else:
+                 st.error(f"🛡️ Safety Critic: Rejected previous analysis. Feedback: {feedback}")
 
 
 def render_report(result: dict):

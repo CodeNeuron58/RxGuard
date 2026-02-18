@@ -115,4 +115,7 @@ def research_agent_node(state: RxGuardState) -> RxGuardState:
         current_step.status = "complete" # Move on anyway
         state["current_step_index"] = current_index + 1
         
+    # EXPLICITLY UPDATE PLAN IN STATE (for UI Trace)
+    state["plan"] = plan
+    
     return state
