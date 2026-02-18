@@ -10,7 +10,7 @@ from config.settings import settings
 from src.agentic.agents.base import get_llm
 from src.agentic.state.schemas import RxGuardState, EvidenceItem
 from src.agentic.utils.logging_config import get_logger
-from src.agentic.graph.nodes.guideline_retrieval import get_vectorstore # Reuse existing FAISS logic
+from src.agentic.utils.retrieval import get_vectorstore
 
 logger = get_logger(__name__)
 
