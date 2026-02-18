@@ -1,19 +1,19 @@
-"""Safety Critic Node: Flags escalation-level safety concerns."""
+"""Safety Critic Node: Validates reasoning and flags safety concerns."""
 
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
 from src.agentic.agents.base import get_llm
-from src.agentic.state.schemas import SafetyFlag, RxGuardState
+from src.agentic.state.schemas import CritiqueResult, RxGuardState
 from src.agentic.utils.logging_config import get_logger
 
 logger = get_logger(__name__)
 
-# Setup safety critic chain
-safety_parser = PydanticOutputParser(pydantic_object=SafetyFlag)
+# Setup critic chain
+critic_parser = PydanticOutputParser(pydantic_object=CritiqueResult)
 
-safety_prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are a clinical safety critic system."),
+critic_prompt = ChatPromptTemplate.from_messages([
+    ("system", "You are a senior clinical pharmacist reviewing a junior's work."),
     ("human",
      """TASK:
 Review the patient context, proposed medication, and risk analysis.
@@ -38,47 +38,47 @@ PROPOSED MEDICATION:
 RISK ANALYSIS:
 {risk_analysis}
 
-JSON SCHEMA:
+JSON FORMAT INSTRUCTIONS:
 {format_instructions}
 """)
 ])
 
 # Initialize LLM and chain
 llm = get_llm()
-safety_chain = safety_prompt | llm | safety_parser
+critic_chain = critic_prompt | llm | critic_parser
 
 
 def safety_critic_node(state: RxGuardState) -> RxGuardState:
-    """Review and flag critical safety concerns.
+    """Review and critique the risk analysis.
     
     Args:
-        state: Current graph state with risk_analysis, patient_profile,
-               and proposed_medication
+        state: Current graph state
         
     Returns:
-        Updated state with safety_flag
+        Updated state with critique_feedback and safety_flag
     """
-    logger.info("--- SAFETY CRITIC ---")
+    logger.info("--- SAFETY CRITIC (Reflexive) ---")
     
-    # Run safety check
-    flag = safety_chain.invoke({
+    result = critic_chain.invoke({
         "patient_context": state["patient_profile"],
         "medication_context": state["proposed_medication"],
         "risk_analysis": state["risk_analysis"],
-        "format_instructions": safety_parser.get_format_instructions()
+        "format_instructions": critic_parser.get_format_instructions()
     })
     
-    # Store result as dict
-    state["safety_flag"] = flag.model_dump()
-    
-    # Log critical/warning levels prominently
-    if flag.level in ["warning", "critical"]:
-        logger.warning(
-            f"SAFETY FLAG: {flag.level.upper()}",
-            reason=flag.reason,
-            patient_context=state["patient_profile"]
-        )
+    # Update state
+    state["critique_feedback"] = result.feedback
+    if result.decision == "APPROVE":
+        # Only set safety flag if approved (otherwise we re-reason)
+        state["safety_flag"] = result.safety_flag.model_dump() if result.safety_flag else None
+        # Clear feedback on approval to prevent loops
+        state["critique_feedback"] = "APPROVE" 
     else:
-        logger.info(f"Safety check passed: {flag.level}")
+        logger.warning(f"CRITIQUE REJECTED: {result.feedback}")
+        # Reset risk analysis if rejected to force re-generation? 
+        # Actually, we keep it to show history, but the loop will overwrite it.
+        pass
+
+    logger.info(f"Critic Decision: {result.decision}")
     
     return state
