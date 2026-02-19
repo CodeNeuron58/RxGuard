@@ -63,11 +63,35 @@ def run_clinical_analysis(raw_note: str):
         final_state = state
         
         # Use a status container for live updates
-        with st.status("🚀 RxGuard Agents Active...", expanded=True) as status:
+        # Create a placeholder for the thought process *outside* the status container first?
+        # No, StreamlitCallbackHandler works best with a container.
+        
+        st_callback = None
             
-            # Run graph with streaming
-            # app.stream yields dictionaries keyed by node name: {'node': state_update}
-            for output in app.stream(state):
+        # Run graph with streaming
+        # app.stream yields dictionaries keyed by node name: {'node': state_update}
+        
+        # Create a container for the live thought process
+        thought_container = st.container()
+        
+        with thought_container:
+            # Initialize the StreamlitCallbackHandler
+            # We want it to render inside an expander or container
+            from langchain_community.callbacks import StreamlitCallbackHandler
+            st_callback = StreamlitCallbackHandler(
+                st.container(), 
+                expand_new_thoughts=True,
+                collapse_completed_thoughts=True,
+                thought_labeler=None # Default labeler
+            )
+
+        # Run with callback
+        config = {"callbacks": [st_callback], "recursion_limit": 50}
+        
+        # We still want the status indicator for high-level progress
+        with st.status("🚀 RxGuard Agents Active...", expanded=False) as status:
+            
+            for output in app.stream(state, config=config):
                 for node_name, state_update in output.items():
                     # Update our local view of state
                     final_state.update(state_update)

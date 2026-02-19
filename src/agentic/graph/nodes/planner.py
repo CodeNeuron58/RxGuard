@@ -4,6 +4,7 @@
 from typing import List
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnableConfig
 from pydantic import BaseModel, Field
 
 from src.agentic.agents.base import get_llm
@@ -38,7 +39,7 @@ planner_prompt = ChatPromptTemplate.from_messages([
 llm = get_llm()
 planner_chain = planner_prompt | llm | parser
 
-def planner_node(state: RxGuardState) -> RxGuardState:
+def planner_node(state: RxGuardState, config: RunnableConfig) -> RxGuardState:
     """Generate a research plan based on patient and medication."""
     logger.info("--- PLANNER NODE ---")
     
@@ -81,7 +82,7 @@ def planner_node(state: RxGuardState) -> RxGuardState:
                 "patient_context": str(patient_profile),
                 "medication_context": str(proposed_medication),
                 "format_instructions": parser.get_format_instructions()
-            })
+            }, config=config)
             
             state["plan"] = plan_result.steps
             state["current_step_index"] = 0

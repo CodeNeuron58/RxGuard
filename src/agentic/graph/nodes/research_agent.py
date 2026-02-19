@@ -4,6 +4,7 @@
 from typing import List, Optional
 from langchain_core.output_parsers import PydanticOutputParser, StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnableConfig
 from pydantic import BaseModel, Field
 
 from config.settings import settings
@@ -47,7 +48,7 @@ extractor_prompt = ChatPromptTemplate.from_messages([
 
 extractor_chain = extractor_prompt | get_llm() | extractor_parser
 
-def research_agent_node(state: RxGuardState) -> RxGuardState:
+def research_agent_node(state: RxGuardState, config: RunnableConfig) -> RxGuardState:
     """Execute the current step in the research plan."""
     logger.info("--- RESEARCH AGENT ---")
     
@@ -76,7 +77,7 @@ def research_agent_node(state: RxGuardState) -> RxGuardState:
         "step_description": current_step.description,
         "patient_context": str(patient_profile),
         "drug": proposed_medication.get("drug_name")
-    })
+    }, config=config)
     
     # 2. Search (Reuse existing FAISS)
     vectorstore = get_vectorstore()
@@ -90,7 +91,7 @@ def research_agent_node(state: RxGuardState) -> RxGuardState:
             "step_description": current_step.description,
             "snippets": snippets,
             "format_instructions": extractor_parser.get_format_instructions()
-        })
+        }, config=config)
         
         # Add to global evidence log
         current_evidence = state.get("evidence", [])

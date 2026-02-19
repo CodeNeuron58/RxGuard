@@ -2,6 +2,7 @@
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import PydanticOutputParser
+from langchain_core.runnables import RunnableConfig
 from src.agentic.state.schemas import RxGuardState, ExtractionResult
 from config.settings import settings
 from src.agentic.agents.base import get_llm
@@ -52,14 +53,14 @@ Accuracy is critical for patient safety.
 extractor_chain = prompt | llm | parser
 
 # === HELPER FUNCTIONS ===
-def run_extraction(note: str) -> ExtractionResult:
+def run_extraction(note: str, config: RunnableConfig) -> ExtractionResult:
     """Execute extraction chain with validation."""
     logger.info("--- CLINICAL EXTRACTION ---")
     
     result = extractor_chain.invoke({
         "note": note,
         "format_instructions": parser.get_format_instructions()
-    })
+    }, config=config)
     
     confidence = result.extraction_confidence
     logger.info(f"Confidence Score: {confidence:.1%}")
@@ -74,7 +75,7 @@ def run_extraction(note: str) -> ExtractionResult:
 
 
 # === NODE FUNCTION ===
-def extract_patient_profile(state: RxGuardState) -> RxGuardState:
+def extract_patient_profile(state: RxGuardState, config: RunnableConfig) -> RxGuardState:
     """Node function to extract patient profile from clinical note."""
     logger.info("--- EXTRACTING PATIENT PROFILE ---")
     
@@ -88,7 +89,7 @@ def extract_patient_profile(state: RxGuardState) -> RxGuardState:
         logger.info(f"Processing note ({len(raw_note)} characters)")
         
         # Run extraction
-        extraction = run_extraction(raw_note)
+        extraction = run_extraction(raw_note, config)
         
         # Log extracted data summary
         logger.info(

@@ -2,6 +2,7 @@
 
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnableConfig
 
 from src.agentic.agents.base import get_llm
 from src.agentic.state.schemas import RiskAnalysis, RxGuardState
@@ -40,11 +41,12 @@ llm = get_llm()
 risk_chain = risk_prompt | llm | risk_parser
 
 
-def risk_reasoning_node(state: RxGuardState) -> RxGuardState:
+def risk_reasoning_node(state: RxGuardState, config: RunnableConfig) -> RxGuardState:
     """Analyze clinical risks based on patient, medication, and structured LINKED evidence.
     
     Args:
         state: Current graph state with 'evidence' (List[EvidenceItem])
+        config: RunnableConfig for callbacks
     
     Returns:
         Updated state with risk_analysis
@@ -68,7 +70,7 @@ def risk_reasoning_node(state: RxGuardState) -> RxGuardState:
         "medication_context": state["proposed_medication"],
         "guideline_text": evidence_text,
         "format_instructions": risk_parser.get_format_instructions()
-    })
+    }, config=config)
     
     # Store result
     state["risk_analysis"] = risk.model_dump()

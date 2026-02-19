@@ -15,4 +15,5 @@ def get_llm() -> ChatGroq:
         temperature=settings.temperature,
         # max_tokens=settings.max_tokens,
         api_key=SecretStr(settings.GROQ_API_KEY),
+        streaming=True,
     )

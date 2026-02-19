@@ -2,6 +2,7 @@
 
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnableConfig
 
 from src.agentic.agents.base import get_llm
 from src.agentic.state.schemas import CritiqueResult, RxGuardState
@@ -53,11 +54,12 @@ llm = get_llm()
 critic_chain = critic_prompt | llm | critic_parser
 
 
-def safety_critic_node(state: RxGuardState) -> RxGuardState:
+def safety_critic_node(state: RxGuardState, config: RunnableConfig) -> RxGuardState:
     """Review and critique the risk analysis.
     
     Args:
         state: Current graph state
+        config: RunnableConfig for callbacks
         
     Returns:
         Updated state with critique_feedback and safety_flag
@@ -69,7 +71,7 @@ def safety_critic_node(state: RxGuardState) -> RxGuardState:
         "medication_context": state["proposed_medication"],
         "risk_analysis": state["risk_analysis"],
         "format_instructions": critic_parser.get_format_instructions()
-    })
+    }, config=config)
     
     # Update state
     state["critique_feedback"] = result.feedback
