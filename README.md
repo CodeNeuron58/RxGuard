@@ -1,6 +1,6 @@
 # 🛡️ RxGuard: Agentic Medication Safety Copilot
 
-![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)
+![Version](https://img.shields.io/badge/version-3.0.1-blue.svg)
 
 **RxGuard** is an intelligent clinical agent designed to prevent medication errors by "thinking before it speaks." Unlike varying chatbots, RxGuard uses a **Reflexive Agent Architecture** to retrieve guidelines, reason about risks, and—crucially—**critique and correct its own analysis** before alerting the clinician.
 
@@ -56,7 +56,8 @@ graph TD
 
 ## ✨ Key Features (v3.0.0)
 
-*   **⚡ Live Thought Trace**: Watch the agent "think" in real-time. The UI streams every step of the Plan, Research, and Critique loop.
+*   **⚡ Live Thought Trace**: Watch the agent "think" in real-time. The UI streams every step of the Plan, Research, and Critique loop, showing token-by-token generation for transparent reasoning.
+*   **🧠 Structured Reasoning**: Complex thought processes are collapsed by default to keep the UI clean, but can be expanded to inspect the raw "chain of thought."
 *   **📚 Automated Data Pipeline**: Ingests raw text and converts it into structured `EvidenceItem` JSONs using LLM-based chunking.
 *   **🔌 Powered by Groq**: Optimized for speed using Llama 3 via Groq's LPU inference engine.
 *   **Self-Correcting**: If the agent initially misses a contraindication, the Critic forces a re-evaluation.

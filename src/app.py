@@ -267,7 +267,7 @@ def main():
     # Sidebar
     with st.sidebar:
         st.header("ℹ️ About")
-        st.caption("Version 3.0.0")
+        st.caption("Version 3.0.1")
         st.info("""
             **RxGuard** analyzes clinical notes for medication safety issues using:
             - LangGraph multi-agent orchestration
