@@ -59,7 +59,7 @@ graph TD
 *   **⚡ Live Thought Trace**: Watch the agent "think" in real-time. The UI streams every step of the Plan, Research, and Critique loop, showing token-by-token generation for transparent reasoning.
 *   **🧠 Structured Reasoning**: Complex thought processes are collapsed by default to keep the UI clean, but can be expanded to inspect the raw "chain of thought."
 *   **📚 Automated Data Pipeline**: Ingests raw text and converts it into structured `EvidenceItem` JSONs using LLM-based chunking.
-*   **🔌 Powered by Groq**: Optimized for speed using Llama 3 via Groq's LPU inference engine.
+*   **🔌 Powered by Ollama**: Privacy-focused local inference using MedGemma.
 *   **Self-Correcting**: If the agent initially misses a contraindication, the Critic forces a re-evaluation.
 
 ---
@@ -67,7 +67,7 @@ graph TD
 ## 🛠️ Tech Stack
 
 *   **Orchestration**: [LangGraph](https://langchain-ai.github.io/langgraph/) (Cyclic StateGraph).
-*   **Reasoning**: Llama 3.3 70B (via Groq).
+*   **Reasoning**: MedGemma 4b (via Ollama).
 *   **Validation**: [Pydantic](https://docs.pydantic.dev/) (Strict Output Schemas).
 *   **Retrieval**: FAISS + HuggingFace Embeddings.
 *   **UI**: Streamlit (Reasoning Tracing enabled).
@@ -86,8 +86,9 @@ cd RxGuard
 # 2. Sync dependencies (using uv)
 uv sync
 
-# 3. Set your API Key
-# Create a .env file with: GROQ_API_KEY=your_key_here
+# 3. Prepare Local LLM
+# Ensure Ollama is installed (https://ollama.com/)
+ollama pull alibayram/medgemma:4b
 
 # 4. Run the application
 streamlit run src/app.py
