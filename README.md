@@ -106,11 +106,13 @@ uv sync
 # (You can change the target model in src/config/settings.py)
 ollama pull alibayram/medgemma:4b
 
-# 4. Boot the application
+# 4. Generate the FAISS Vector Database (Required first run)
+# This will parse guidelines in data/ and build the local knowledge base
+python src/data/ingest_structured.py
+
+# 5. Boot the application
 streamlit run src/app.py
 ```
-
-*Note: On the first run, the system will automatically parse the `data/` folder and generate the FAISS vector store. This may take a few moments depending on CPU speed.*
 
 ---
 
