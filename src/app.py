@@ -272,7 +272,7 @@ def main():
             **RxGuard** analyzes clinical notes for medication safety issues using:
             - LangGraph multi-agent orchestration
             - RAG with clinical guidelines
-            - Groq LLM (Llama 3.3 70B)
+            - medgemma:4b
         """)
         
         st.header("📖 Examples")
@@ -289,7 +289,7 @@ def main():
                 st.rerun()
         
         st.header("⚙️ Settings")
-        st.caption("Model: llama-3.3-70b-versatile")
+        st.caption("Model: medgemma:4b")
         st.caption("Temp: 0.1 (clinical precision)")
         
         # Check vectorstore
