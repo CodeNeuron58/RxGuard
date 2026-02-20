@@ -1,0 +1,133 @@
+{
+  "id": "naproxen-fda-label",
+  "drug_name": "Naproxen",
+  "source": "FDA Label (openFDA)",
+  "publish_date": "20260129",
+  "facts": [
+    {
+      "category": "Contraindication",
+      "text": "Known hypersensitivity (including anaphylactic or serious skin reactions) to naproxen or any component of the product.",
+      "population": "All patients"
+    },
+    {
+      "category": "Contraindication",
+      "text": "History of asthma, urticaria, or other allergic\u2011type reactions after taking aspirin or other NSAIDs (aspirin\u2011sensitive asthma).",
+      "population": "Patients with aspirin\u2011sensitive asthma"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Use in the setting of coronary artery bypass graft (CABG) surgery.",
+      "population": "Patients undergoing or post\u2011CABG surgery"
+    },
+    {
+      "category": "Warning",
+      "text": "NSAIDs, including naproxen, increase the risk of serious cardiovascular thrombotic events (myocardial infarction, stroke) which may occur early in therapy and rise with duration and dose.",
+      "population": "All patients, especially those with existing cardiovascular disease or risk factors"
+    },
+    {
+      "category": "Warning",
+      "text": "NSAIDs cause serious gastrointestinal adverse events (bleeding, ulceration, perforation) that can be fatal and may occur without warning symptoms. Risk is higher in elderly patients and those with prior peptic ulcer disease or GI bleeding.",
+      "population": "Elderly patients and patients with prior ulcer/GI bleed"
+    },
+    {
+      "category": "Warning",
+      "text": "Hepatotoxicity: elevations of ALT/AST \u22653\u00d7 ULN in ~1% of patients; rare cases of fulminant hepatitis. Monitor liver enzymes and discontinue if signs of liver injury develop.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Hypertension: NSAIDs may blunt the antihypertensive effect of ACE inhibitors, thiazide or loop diuretics. Monitor blood pressure.",
+      "population": "Patients on antihypertensive therapy"
+    },
+    {
+      "category": "Warning",
+      "text": "Heart failure and edema: avoid in severe heart failure unless benefit outweighs risk; monitor for worsening heart failure and consider sodium load (50\u202fmg Na per 500\u202fmg naproxen sodium tablet).",
+      "population": "Patients with severe heart failure"
+    },
+    {
+      "category": "Warning",
+      "text": "Renal toxicity: dose\u2011dependent reduction in renal prostaglandins may precipitate renal decompensation, especially in patients with impaired renal function, dehydration, hypovolemia, heart failure, liver disease, or those taking diuretics/ACE\u2011I/ARBs. Monitor renal function; avoid in advanced renal disease unless benefit outweighs risk.",
+      "population": "Patients with renal impairment, dehydration, heart failure, or on diuretics/ACE\u2011I/ARBs"
+    },
+    {
+      "category": "Warning",
+      "text": "Hyperkalemia: NSAIDs can increase serum potassium, even in patients with normal renal function.",
+      "population": "All patients, especially those on potassium\u2011sparing agents"
+    },
+    {
+      "category": "Warning",
+      "text": "Anaphylactic reactions: may occur in patients with or without known naproxen hypersensitivity; seek emergency care.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Serious skin reactions (SJS, TEN, exfoliative dermatitis, GBFDE) may be fatal; discontinue at first sign of rash or hypersensitivity.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS) reported; discontinue and evaluate immediately if suspected.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Fetal toxicity: avoid after ~30\u202fweeks gestation due to risk of premature closure of ductus arteriosus; limit use between 20\u201330\u202fweeks to lowest effective dose and shortest duration; monitor amniotic fluid if >48\u202fh.",
+      "population": "Pregnant women, especially \u226520\u202fweeks gestation"
+    },
+    {
+      "category": "Warning",
+      "text": "Hematologic toxicity: NSAIDs may cause anemia from occult/gross bleeding or affect erythropoiesis; monitor hemoglobin/hematocrit, especially with concomitant anticoagulants, antiplatelets, SSRIs, SNRIs.",
+      "population": "Patients with bleeding risk or on anticoagulant/antiplatelet therapy"
+    },
+    {
+      "category": "Interaction",
+      "text": "Concurrent low\u2011dose aspirin increases risk of serious GI events.",
+      "population": "Patients taking aspirin"
+    },
+    {
+      "category": "Interaction",
+      "text": "NSAIDs may reduce efficacy of antihypertensives (ACE\u2011I, ARBs, thiazides, loop diuretics).",
+      "population": "Patients on antihypertensive regimens"
+    },
+    {
+      "category": "Interaction",
+      "text": "Avoid use of more than one NSAID simultaneously; naproxen-containing products should not be co\u2011administered.",
+      "population": "All patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "Increased bleeding risk when combined with warfarin, other anticoagulants, antiplatelet agents, SSRIs, or SNRIs.",
+      "population": "Patients on anticoagulant/antiplatelet/SSRI/SNRI therapy"
+    },
+    {
+      "category": "Dosage",
+      "text": "Use the lowest effective dose for the shortest duration. Rheumatoid arthritis/osteoarthritis/ankylosing spondylitis: naproxen 250\u202fmg (\u00bd tablet) then 500\u202fmg twice daily; naproxen sodium 275\u202fmg (\u00bd tablet) then 550\u202fmg twice daily. Dose may be titrated up to 1500\u202fmg/day for up to 6\u202fmonths if needed.",
+      "population": "Adults"
+    },
+    {
+      "category": "Dosage",
+      "text": "Acute gout: start 750\u202fmg naproxen tablets, then 250\u202fmg every 8\u202fh until attack resolves; naproxen sodium 825\u202fmg start then 275\u202fmg every 8\u202fh.",
+      "population": "Adults"
+    },
+    {
+      "category": "Dosage",
+      "text": "Primary dysmenorrhea, acute tendonitis/bursitis, pain: start 550\u202fmg naproxen sodium (tablet) then 550\u202fmg q12\u202fh or 275\u202fmg q6\u20118\u202fh PRN; total daily dose \u22641375\u202fmg initially, \u22641100\u202fmg thereafter.",
+      "population": "Adults"
+    },
+    {
+      "category": "Dosage",
+      "text": "Polyarticular juvenile idiopathic arthritis: total daily dose \u224810\u202fmg/kg in two divided doses; naproxen tablets not appropriate for children <50\u202fkg \u2013 consider liquid formulation.",
+      "population": "Pediatric patients \u226550\u202fkg"
+    },
+    {
+      "category": "Geriatric",
+      "text": "Elderly patients have a greater risk of serious GI events and may be more susceptible to renal toxicity; monitor renal function and consider lower starting doses.",
+      "population": "Older adults"
+    },
+    {
+      "category": "Renal",
+      "text": "Long\u2011term NSAID use can cause papillary necrosis and worsen pre\u2011existing renal disease; correct volume status before initiating therapy; monitor renal function and serum potassium; avoid in advanced renal disease unless benefit outweighs risk.",
+      "population": "Patients with renal impairment or at risk (dehydration, heart failure, liver disease, elderly)"
+    }
+  ]
+}

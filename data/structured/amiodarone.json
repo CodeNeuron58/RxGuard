@@ -1,0 +1,183 @@
+{
+  "id": "amiodarone-fda-label",
+  "drug_name": "Amiodarone",
+  "source": "FDA Label (openFDA)",
+  "publish_date": "20240202",
+  "facts": [
+    {
+      "category": "Contraindication",
+      "text": "Cardiogenic shock.",
+      "population": "All patients"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Sick sinus syndrome, second\u2011 or third\u2011degree atrioventricular block, or bradycardia leading to syncope in patients without a functioning pacemaker.",
+      "population": "Patients with conduction system disease lacking a pacemaker"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Known hypersensitivity to amiodarone, its components, or iodine.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Boxed warning: Amiodarone can cause life\u2011threatening pulmonary toxicity (incidence up to 17\u202f%, fatal in ~10\u202f%), hepatic injury (may be fatal), and pro\u2011arrhythmic effects. Baseline chest X\u2011ray, pulmonary function tests, and liver transaminases are required before initiation; repeat monitoring is recommended every 3\u20136\u202fmonths.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Pulmonary toxicity may present as cough, dyspnea, interstitial/alveolar pneumonitis, or ARDS; consider prednisone 40\u201360\u202fmg/day tapered if toxicity occurs.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Hepatic injury may be asymptomatic enzyme elevation or severe hepatitis/cirrhosis; discontinue or reduce dose if transaminases exceed 3\u202f\u00d7\u202fULN (or double a previously elevated baseline).",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Amiodarone can exacerbate existing arrhythmias or precipitate new ventricular tachyarrhythmias, torsades de pointes, especially with electrolyte disturbances (K\u207a, Mg\u00b2\u207a, Ca\u00b2\u207a). Correct electrolytes before initiation.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Corneal microdeposits are common and reversible; optic neuropathy/neuritis are rare but may cause permanent vision loss. Perform baseline and periodic ophthalmic examinations.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Thyroid dysfunction occurs in up to 10\u202f% (hypothyroidism) and ~2\u202f% (hyperthyroidism). Monitor thyroid function before and during therapy, especially in the elderly or those with prior thyroid disease.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Symptomatic bradycardia or sinus arrest may occur in 2\u20134\u202f% of patients; may require pacemaker. Risk increased with concomitant negative chronotropes or antiviral therapy (e.g., ledipasvir/sofosbuvir).",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Implantable cardioverter\u2011defibrillators or pacemakers may have altered pacing/defibrillation thresholds; assess thresholds at initiation and during therapy.",
+      "population": "Patients with implanted cardiac devices"
+    },
+    {
+      "category": "Warning",
+      "text": "Fetal toxicity: amiodarone may cause cardiac, thyroid, neurodevelopmental, and growth effects in the neonate. Avoid use in pregnancy unless benefits outweigh risks.",
+      "population": "Pregnant women"
+    },
+    {
+      "category": "Warning",
+      "text": "Peripheral neuropathy may be irreversible after chronic use.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Photosensitivity occurs in ~10\u202f% of patients; advise sun protection. Chronic therapy may cause blue\u2011gray skin discoloration.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Increased sensitivity to myocardial depressant and conduction effects of halogenated inhalational anesthetics; monitor closely during surgery.",
+      "population": "Patients undergoing surgery"
+    },
+    {
+      "category": "Dosage",
+      "text": "Loading dose: 800\u20131600\u202fmg/day (usually divided) until therapeutic response (1\u20133\u202fweeks).",
+      "population": "All patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "After response, reduce to 600\u2013800\u202fmg/day for one month, then maintain at ~400\u202fmg/day.",
+      "population": "All patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "Administer tablets with meals; for total daily doses \u22651000\u202fmg or if GI intolerance occurs, give in divided doses with food.",
+      "population": "All patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "Obtain baseline chest X\u2011ray, pulmonary function tests, thyroid function tests, and liver aminotransferases before starting therapy; correct hypokalemia, hypomagnesemia, and hypocalcemia before initiation.",
+      "population": "All patients"
+    },
+    {
+      "category": "Geriatric",
+      "text": "Patients >65\u202fyears have reduced clearance and prolonged half\u2011life; start at the low end of the dosing range and adjust for hepatic, renal, or cardiac impairment.",
+      "population": "Elderly patients"
+    },
+    {
+      "category": "Renal",
+      "text": "Monitor renal function when amiodarone is co\u2011administered with cyclosporine, as amiodarone can increase creatinine despite dose reduction of cyclosporine.",
+      "population": "Patients receiving cyclosporine"
+    },
+    {
+      "category": "Interaction",
+      "text": "Pharmacodynamic: Concomitant QT\u2011prolonging drugs (class I/III antiarrhythmics, lithium, phenothiazines, tricyclic antidepressants, certain fluoroquinolones, macrolides, azole antifungals, halogenated anesthetics) increase torsades de pointes risk; avoid combination.",
+      "population": "All patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "Negative chronotropes (digoxin, \u03b2\u2011blockers, verapamil, diltiazem, clonidine, ivabradine) potentiate bradycardia, sinus arrest, and AV block; monitor heart rate.",
+      "population": "All patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "CYP450 inhibitors (grapefruit juice, certain fluoroquinolones/macrolides, azole antifungals, cimetidine, protease inhibitors) increase amiodarone exposure; avoid or adjust dose.",
+      "population": "All patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "CYP450 inducers (St. John\u2019s Wort) reduce amiodarone serum levels; may require dose increase.",
+      "population": "All patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "Cyclosporine: amiodarone raises cyclosporine levels and may increase serum creatinine; monitor cyclosporine concentrations and renal function; consider dose reduction of cyclosporine.",
+      "population": "Patients on cyclosporine"
+    },
+    {
+      "category": "Interaction",
+      "text": "Digoxin: amiodarone can double digoxin concentrations; reduce digoxin dose by ~50\u202f% and monitor for toxicity.",
+      "population": "Patients on digoxin"
+    },
+    {
+      "category": "Interaction",
+      "text": "Warfarin: amiodarone potentiates anticoagulant effect, increasing PT/INR up to 100\u202f% after 3\u20134\u202fdays; reduce warfarin dose by 1/3\u20131/2 and monitor INR.",
+      "population": "Patients on warfarin"
+    },
+    {
+      "category": "Interaction",
+      "text": "Statins (simvastatin, lovastatin, atorvastatin): increased plasma concentrations; limit lovastatin to \u226440\u202fmg, simvastatin to \u226420\u202fmg, consider lower starting doses of other CYP3A4 substrates.",
+      "population": "Patients on HMG\u2011CoA reductase inhibitors"
+    },
+    {
+      "category": "Interaction",
+      "text": "Antiarrhythmics (quinidine, procainamide, flecainide): amiodarone inhibits their metabolism; start at 30\u201150\u202f% lower dose and monitor; reduce dose of the other agent for several days after switching to amiodarone.",
+      "population": "Patients on other antiarrhythmics"
+    },
+    {
+      "category": "Interaction",
+      "text": "Sofosbuvir (and ledipasvir/sofosbuvir): reports of severe bradyarrhythmia requiring pacemaker when started in patients on amiodarone; monitor heart rate and consider discontinuing amiodarone.",
+      "population": "Patients receiving HCV direct\u2011acting antivirals"
+    },
+    {
+      "category": "Interaction",
+      "text": "Lidocaine: may cause sinus bradycardia when combined with amiodarone; consider lower lidocaine dose and monitor heart rate.",
+      "population": "Patients receiving lidocaine"
+    },
+    {
+      "category": "Interaction",
+      "text": "Fentanyl: combination may cause hypotension, bradycardia, and decreased cardiac output; avoid co\u2011administration.",
+      "population": "Patients receiving fentanyl"
+    },
+    {
+      "category": "Interaction",
+      "text": "Cholestyramine: reduces amiodarone serum levels; may require dose adjustment.",
+      "population": "Patients on cholestyramine"
+    },
+    {
+      "category": "Interaction",
+      "text": "Phenytoin: amiodarone increases steady\u2011state phenytoin levels; monitor phenytoin concentrations.",
+      "population": "Patients on phenytoin"
+    }
+  ]
+}

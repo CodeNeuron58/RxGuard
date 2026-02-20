@@ -2,114 +2,133 @@
 
 ![Version](https://img.shields.io/badge/version-3.0.1-blue.svg)
 
-**RxGuard** is an intelligent clinical agent designed to prevent medication errors by "thinking before it speaks." Unlike varying chatbots, RxGuard uses a **Reflexive Agent Architecture** to retrieve guidelines, reason about risks, and—crucially—**critique and correct its own analysis** before alerting the clinician.
+**RxGuard** is an intelligent clinical agent designed to prevent medication errors by "thinking before it speaks." Unlike standard deterministic rule-engines or varying LLM chatbots, RxGuard uses a **Reflexive Agent Architecture** powered by a cyclic graph state. It retrieves medical guidelines, reasons about multi-systemic patient risks, and crucially—**critiques, rejects, and corrects its own analysis** before alerting a clinician.
+
+Designed for absolute privacy, RxGuard runs inference entirely locally.
 
 ---
 
 ## 🚀 The "Agentic" Difference
 
-Traditional clinical decision support systems are linear: `Input -> Rules -> Alert`. They fail when rules are ambiguous or patient context is complex.
+Traditional Clinical Decision Support Systems (CDSS) are linear (`Input -> Rules -> Alert`). They suffer from massive "alert fatigue" and fail entirely when rules become ambiguous or when dealing with complex, multi-morbid patient contexts.
 
-**RxGuard is cyclic.** It mimics a senior pharmacist's thought process:
-1.  **Read:** Understands the patient's full context (e.g., "Stage 3 CKD").
-2.  **Plan:** Break down the clinical question into a research checklist.
-3.  **Research:** Dynamically generates search queries for relevant guidelines.
-4.  **Reason:** Analyzes risks (e.g., "NSAIDs cause afferent arteriole vasoconstriction").
-5.  **Reflect:** A "Safety Critic" node reviews the analysis. IF the evidence is weak, it **rejects** the finding and sends the agent back to do more research.
+**RxGuard is cyclic and stateful.** It mimics the methodical thought process of a senior clinical pharmacist through deliberate stages:
+
+1.  **Extract:** Understands the unstructured clinical note (e.g., pulling "Stage 3 CKD" from a raw paragraph).
+2.  **Plan:** Breaks down the complex clinical question into a prioritized research checklist.
+3.  **Research:** A worker agent dynamically generates queries, fetching and evaluating specific evidence from a vector store.
+4.  **Reason:** The core reasoning engine synthesizes the retrieved guidelines against the patient's physiological context.
+5.  **Reflect & Critique:** A dedicated "Safety Critic" node reviews the proposed clinical alert. If the reasoning lacks explicit citations or logical rigor, the Critic **rejects** the finding and routes the agent back to the Planning phase to try again.
 
 ---
 
-## 🏗️ System Architecture
+## 🏗️ Deep Dive: System Architecture
 
-RxGuard employs a **stateful, cyclic multi-agent workflow** orchestrated by [LangGraph](https://langchain-ai.github.io/langgraph/).
+RxGuard's brain is orchestrated using [LangGraph](https://langchain-ai.github.io/langgraph/), implementing a sophisticated state machine that enforces accountability at every step.
 
 ```mermaid
 graph TD
-    Start(Clinical Note) --> Extract[Node: Extract Context]
-    Extract --> Router{Router}
+    Start((Initialize State)) --> Extract[Node: Extract Patient Context]
+    Extract --> ConfidenceCheck{High Confidence?}
+    
+    ConfidenceCheck -- "Yes" --> Router{Router Node}
+    ConfidenceCheck -- "No" --> Report[Node: Final Safety Report]
     
     Router -- "New Attempt" --> Planner[Node: Research Planner]
-    Router -- "Give Up" --> Report[Node: Final Safety Report]
+    Router -- "Give Up (Max Loops)" --> Report
     
     Planner --> Retrieve[Node: Research Agent]
     
-    Retrieve -- "More Steps" --> Retrieve
-    Retrieve -- "Complete" --> Reason[Node: Risk Reasoning]
+    Retrieve -- "More Steps in Plan" --> Retrieve
+    Retrieve -- "Plan Complete" --> Reason[Node: Risk Reasoning Core]
     
     Reason --> Critic[Node: Safety Critic]
     
-    Critic -- "REJECT (Loop)" --> Router
+    Critic -- "REJECT (Missing Citations)" --> Router
     Critic -- "APPROVE" --> Report
     
-    Report --> End((End))
+    Report --> End((End/UI Render))
 ```
 
-### 🧠 Core Agents
+### 🧠 Node Responsibilities 
 
-1.  **Router**: Manages the cyclic workflow, tracking attempts and deciding whether to retry or fail.
-2.  **Planner Node**: Decomposes the query into specific research steps (e.g. "Check renal dosing").
-3.  **Research Agent**: A dedicated worker that executes the plan, fetching evidence from the Vector Store.
-4.  **Risk Reasoning Engine**: The clinical logic core. Applies physiological mechanisms to patient data.
-5.  **Safety Critic**: The gatekeeper. It strictly enforces that every claim must have a citation.
+1.  **Context Extractor (`extract_patient_profile`)**: The ingestion layer. Submits raw clinical notes to a strict Pydantic model to extract structured data (Age, Gender, Comorbidities, Proposed Medication). It outputs a `confidence_score`.
+2.  **The Router (`router_node`)**: The loop manager. Keeps track of how many times the agent has failed the Critic's checks. If attempts > max, it forces a graceful failure rather than an infinite loop.
+3.  **Research Planner (`planner_node`)**: Given the structured patient profile, it generates an executable Pydantic `Plan` (e.g., `[Step 1: Check renal dosing; Step 2: Check drug-disease interactions for NSAIDs + CKD]`).
+4.  **Research Agent (`research_agent_node`)**: The executor. It takes the current step from the plan, generates a FAISS similarity search query, retrieves chunks from the clinical guidelines vector store, and logs findings to the state. Loops back to itself until all plan steps are complete.
+5.  **Risk Reasoning Core (`risk_reasoning_node`)**: The synthesizer. It reads the complete `research_log` and the `patient_profile` to deduce the actual clinical risk level, outputting a structured diagnosis.
+6.  **Safety Critic (`safety_critic_node`)**: The gatekeeper. It acts antagonistically towards the Reasoning Core. It checks: *Is the risk adequately explained? Are there hallucinations? Are there explicit citations?* It outputs "APPROVE" or "REJECT". If rejected, the state flows back to the Router.
 
 ---
 
-## ✨ Key Features (v3.0.0)
+## ✨ Key Technical Features
 
-*   **⚡ Live Thought Trace**: Watch the agent "think" in real-time. The UI streams every step of the Plan, Research, and Critique loop, showing token-by-token generation for transparent reasoning.
-*   **🧠 Structured Reasoning**: Complex thought processes are collapsed by default to keep the UI clean, but can be expanded to inspect the raw "chain of thought."
-*   **📚 Automated Data Pipeline**: Ingests raw text and converts it into structured `EvidenceItem` JSONs using LLM-based chunking.
-*   **🔌 Powered by Ollama**: Privacy-focused local inference using MedGemma.
-*   **Self-Correcting**: If the agent initially misses a contraindication, the Critic forces a re-evaluation.
+*   **⚡ Live Thought Trace Streaming**: The Streamlit UI intercepts the LangGraph stream, allowing users to watch the agent "think" in real-time. The UI renders the Plan, Research execution, and Critique loops transparently.
+*   **🧠 Deterministic Outputs via Pydantic**: LLM hallucinations are drastically reduced by forcing every node in the graph to return strictly validated JSON structures.
+*   **📚 Automated RAG Pipeline**: Ingests raw clinical guideline text and converts it into structured, retrievable embeddings (FAISS + HuggingFace).
+*   **� 100% Local Execution**: Built to operate in highly air-gapped clinical environments. Inference is driven completely by local, open-source models via Ollama. 
 
 ---
 
 ## 🛠️ Tech Stack
 
-*   **Orchestration**: [LangGraph](https://langchain-ai.github.io/langgraph/) (Cyclic StateGraph).
-*   **Reasoning**: MedGemma 4b (via Ollama).
-*   **Validation**: [Pydantic](https://docs.pydantic.dev/) (Strict Output Schemas).
-*   **Retrieval**: FAISS + HuggingFace Embeddings.
-*   **UI**: Streamlit (Reasoning Tracing enabled).
+*   **Language**: Python 3.12+
+*   **Agent Orchestration**: [LangGraph](https://langchain-ai.github.io/langgraph/) (Cyclic StateGraph).
+*   **LLM Interface**: LangChain & Ollama.
+*   **Primary LLM**: MedGemma-4b (for clinical reasoning).
+*   **Validation**: [Pydantic](https://docs.pydantic.dev/).
+*   **Vector Database**: FAISS CPU.
+*   **Embeddings**: HuggingFace (`sentence-transformers/all-MiniLM-L6-v2`).
+*   **Frontend**: Streamlit.
 
 ---
 
 ## ⚡ Quick Start
 
-Get the application running in minutes.
+Provide a local environment to safely test RxGuard.
+
+### Prerequisites
+*   Python 3.12+ installed.
+*   [`uv`](https://docs.astral.sh/uv/) installed for fast dependency management.
+*   [Ollama](https://ollama.com/) installed and running locally.
+
+### Installation
 
 ```bash
 # 1. Clone the repository
 git clone https://github.com/CodeNeuron58/RxGuard.git
 cd RxGuard
 
-# 2. Sync dependencies (using uv)
+# 2. Sync dependencies
 uv sync
 
-# 3. Prepare Local LLM
-# Ensure Ollama is installed (https://ollama.com/)
+# 3. Pull the recommended local LLM via Ollama
+# (You can change the target model in src/config/settings.py)
 ollama pull alibayram/medgemma:4b
 
-# 4. Run the application
+# 4. Boot the application
 streamlit run src/app.py
 ```
+
+*Note: On the first run, the system will automatically parse the `data/` folder and generate the FAISS vector store. This may take a few moments depending on CPU speed.*
 
 ---
 
 ## 📂 Project Structure
 
-```
+A clean, modular, production-ready layout:
+
+```text
 .
-├── config/             # Environment & App Settings
-├── data/               # Vector Store & Guidelines
+├── config/             # App Settings & Environmental configuration
+├── data/               # Raw medical guidelines & generated Vector Database
 ├── src/
-│   ├── agentic/
-│   │   ├── graph/      # LangGraph Nodes & Edges
-│   │   │   ├── nodes/  # Router, Critic, Reasoning, Retrieval
-│   │   │   └── builder.py
-│   │   ├── state/      # Pydantic Schemas
-│   │   └── agents/     # LLM Interface
-│   ├── ui/             # Streamlit Components
-│   └── app.py          # Main Application Entrypoint
-└── pyproject.toml
+│   ├── agentic/        # The Core AI Logic
+│   │   ├── graph/      # LangGraph orchestration (edges, nodes, builder.py)
+│   │   ├── state/      # Pydantic Schemas defining our StateGraph
+│   │   └── utils/      # Logging and common tools
+│   ├── ui/             # Streamlit specific components (if decoupled)
+│   └── app.py          # Streamlit UI entrypoint & rendering logic
+├── pyproject.toml      # Dependency definitions
+└── README.md
 ```

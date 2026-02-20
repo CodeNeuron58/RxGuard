@@ -1,0 +1,68 @@
+{
+  "id": "omeprazole-fda-label",
+  "drug_name": "Omeprazole",
+  "source": "FDA Label (openFDA)",
+  "publish_date": "20241110",
+  "facts": [
+    {
+      "category": "Contraindication",
+      "text": "Do not use if the patient is allergic to omeprazole; severe skin reactions such as reddening, blisters, or rash may occur.",
+      "population": "All patients"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Omeprazole is not indicated for children under 18 years; a doctor should be consulted before use.",
+      "population": "Children (<18 years)"
+    },
+    {
+      "category": "Warning",
+      "text": "Seek immediate medical attention if experiencing difficulty swallowing, vomiting blood, black/tarry stools, light\u2011headedness, chest or shoulder pain, shortness of breath, or persistent wheezing with heartburn.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Persistent heartburn lasting more than 3 months, unexplained weight loss, nausea/vomiting, or stomach pain may signal a serious condition; consult a doctor.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "If heartburn continues or worsens, treatment exceeds 14 days, more than one 14\u2011day course is needed within 4 months, diarrhea develops, or a rash/joint pain appears, stop the product and contact a healthcare professional.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Pregnant or breastfeeding individuals should consult a health professional before using omeprazole.",
+      "population": "Pregnant or lactating patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Keep the product out of reach of children.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "In case of overdose, obtain medical help or contact a Poison Control Center (1\u2011800\u2011222\u20111222) immediately.",
+      "population": "All patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "Acid\u2011reducing agents, including omeprazole, may interact with certain prescription drugs; patients should ask a doctor or pharmacist before use if they are taking prescription medications.",
+      "population": "All patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "Adults (\u226518 years) should swallow 1 tablet with a glass of water before breakfast, once daily, for a 14\u2011day course; do not exceed 1 tablet per day or use longer than 14 days unless directed by a physician.",
+      "population": "Adults (\u226518 years)"
+    },
+    {
+      "category": "Dosage",
+      "text": "Tablets must be swallowed whole; do not chew or crush.",
+      "population": "All patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "A 14\u2011day course may be repeated no more frequently than every 4 months, unless a doctor advises otherwise.",
+      "population": "All patients"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "id": "atorvastatin-fda-label",
+  "drug_name": "Atorvastatin",
+  "source": "FDA Label (openFDA)",
+  "publish_date": "20250828",
+  "facts": [
+    {
+      "category": "Contraindication",
+      "text": "Acute liver failure or decompensated cirrhosis.",
+      "population": "All patients"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Hypersensitivity to atorvastatin or any excipients in the formulation.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Myopathy and rhabdomyolysis may occur; risk factors include age\u202f\u2265\u202f65\u202fyears, uncontrolled hypothyroidism, renal impairment, concomitant use of interacting drugs, and higher atorvastatin doses. Discontinue if markedly elevated CK or clinical myopathy is diagnosed.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Immune\u2011mediated necrotizing myopathy (IMNM) has been reported; discontinue atorvastatin if IMNM is suspected.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Hepatic dysfunction: transient elevations in transaminases are common; persistent >3\u00d7 ULN occurs in ~0.7\u202f% of patients. Monitor liver enzymes and discontinue if serious hepatic injury, hyperbilirubinemia, or jaundice develops.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Statins, including atorvastatin, may increase HbA1c and fasting glucose; lifestyle measures should be optimized.",
+      "population": "Patients with diabetes or pre\u2011diabetes"
+    },
+    {
+      "category": "Warning",
+      "text": "In patients receiving 80\u202fmg daily, there is an increased risk of hemorrhagic stroke after a recent hemorrhagic stroke (HR\u202f\u2248\u202f1.68).",
+      "population": "Patients with recent hemorrhagic stroke"
+    },
+    {
+      "category": "Renal",
+      "text": "Renal impairment is a risk factor for myopathy; acute kidney injury secondary to rhabdomyolysis has been reported. Temporarily discontinue atorvastatin in acute conditions with high risk of renal failure (e.g., sepsis, shock, major surgery).",
+      "population": "Patients with renal impairment or acute serious illness"
+    },
+    {
+      "category": "Geriatric",
+      "text": "Patients \u2265\u202f65\u202fyears have a higher incidence of myopathy and rhabdomyolysis; dose selection should be cautious and patients monitored for muscle symptoms.",
+      "population": "Elderly patients (\u2265\u202f65\u202fyears)"
+    },
+    {
+      "category": "Dosage",
+      "text": "Adults: start 10\u202fmg or 20\u202fmg once daily; dose range 10\u202fmg\u201380\u202fmg daily. Patients needing >45\u202f% LDL\u2011C reduction may start at 40\u202fmg daily.",
+      "population": "Adult patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "Pediatric patients \u2265\u202f10\u202fyears with heterozygous familial hypercholesterolemia (HeFH): start 10\u202fmg once daily; dose range 10\u202fmg\u201320\u202fmg daily.",
+      "population": "Pediatric HeFH (\u2265\u202f10\u202fyears)"
+    },
+    {
+      "category": "Dosage",
+      "text": "Pediatric patients \u2265\u202f10\u202fyears with homozygous familial hypercholesterolemia (HoFH): start 10\u201320\u202fmg once daily; dose range 10\u202fmg\u201380\u202fmg daily.",
+      "population": "Pediatric HoFH (\u2265\u202f10\u202fyears)"
+    },
+    {
+      "category": "Dosage",
+      "text": "Take orally once daily with or without food; assess LDL\u2011C as early as 4\u202fweeks after initiation and adjust dose as needed.",
+      "population": "All patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "When co\u2011administered with cyclosporine, gemfibrozil, tipranavir\u202f+\u202fritonavir, or glecaprevir\u202f+\u202fpibrentasvir, do not use atorvastatin (interaction not recommended).",
+      "population": "Patients on these interacting drugs"
+    },
+    {
+      "category": "Dosage",
+      "text": "With saquinavir\u202f+\u202fritonavir, darunavir\u202f+\u202fritonavir, fosamprenavir\u202f\u00b1\u202fritonavir, elbasvir\u202f+\u202fgrazoprevir, or letermovir: do not exceed 20\u202fmg daily.",
+      "population": "Patients on these antivirals"
+    },
+    {
+      "category": "Dosage",
+      "text": "With nelfinavir: do not exceed 40\u202fmg daily.",
+      "population": "Patients on nelfinavir"
+    },
+    {
+      "category": "Dosage",
+      "text": "With clarithromycin or itraconazole: do not exceed 20\u202fmg daily.",
+      "population": "Patients on these macrolide/azole agents"
+    },
+    {
+      "category": "Interaction",
+      "text": "CYP3A4 and transporter inhibitors (e.g., azole antifungals, macrolide antibiotics, many antivirals) increase atorvastatin exposure and myopathy risk; dose limits or avoidance are required.",
+      "population": "All patients taking CYP3A4/transport inhibitor drugs"
+    },
+    {
+      "category": "Interaction",
+      "text": "Rifampin induces CYP3A4 and reduces atorvastatin exposure; administer simultaneously to mitigate interaction.",
+      "population": "Patients on rifampin"
+    },
+    {
+      "category": "Interaction",
+      "text": "Grapefruit juice >1.2\u202fL/day markedly raises atorvastatin levels; avoid large quantities.",
+      "population": "All patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "Concomitant high\u2011dose niacin (>1\u202fg/day), fibrates (except gemfibrozil), or colchicine increase myopathy risk; monitor closely if used together.",
+      "population": "Patients on these lipid\u2011modifying agents"
+    },
+    {
+      "category": "Interaction",
+      "text": "Atorvastatin increases plasma concentrations of norethindrone and ethinyl estradiol; consider when selecting oral contraceptives.",
+      "population": "Women using oral contraceptives"
+    },
+    {
+      "category": "Interaction",
+      "text": "Atorvastatin raises digoxin levels; monitor digoxin concentrations and adjust as needed.",
+      "population": "Patients on digoxin"
+    }
+  ]
+}

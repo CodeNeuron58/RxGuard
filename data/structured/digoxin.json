@@ -1,0 +1,173 @@
+{
+  "id": "digoxin-fda-label",
+  "drug_name": "Digoxin",
+  "source": "FDA Label (openFDA)",
+  "publish_date": "20240904",
+  "facts": [
+    {
+      "category": "Contraindication",
+      "text": "Ventricular fibrillation.",
+      "population": "All patients"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Known hypersensitivity to digoxin or any other digitalis preparation (e.g., rash, oral swelling, breathing difficulty).",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "In patients with Wolff\u2011Parkinson\u2011White syndrome who develop atrial fibrillation, digoxin can precipitate rapid ventricular response and ventricular fibrillation.",
+      "population": "Patients with accessory AV pathway (WPW) and atrial fibrillation"
+    },
+    {
+      "category": "Warning",
+      "text": "Patients with pre\u2011existing sinus node disease or AV block are at risk for severe sinus bradycardia, sino\u2011atrial block, or complete heart block; consider pacemaker before therapy.",
+      "population": "Patients with sinus node disease or AV block"
+    },
+    {
+      "category": "Warning",
+      "text": "Digoxin toxicity manifests as nausea, vomiting, visual disturbances, and a wide range of arrhythmias; risk is increased by advanced age, low body weight, impaired renal function, hypokalemia, hypercalcemia, or hypomagnesemia.",
+      "population": "Elderly, low\u2011weight, renal\u2011impaired, or electrolyte\u2011disturbed patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Discontinue or reduce digoxin 1\u20132 days before electrical cardioversion to avoid ventricular arrhythmias; if cardioversion cannot be delayed, use the lowest possible energy.",
+      "population": "Patients undergoing electrical cardioversion"
+    },
+    {
+      "category": "Warning",
+      "text": "Digoxin is not recommended in acute myocardial infarction because it may increase myocardial oxygen demand and precipitate ischemia.",
+      "population": "Patients with acute MI"
+    },
+    {
+      "category": "Warning",
+      "text": "Avoid digoxin in myocarditis; it can cause vasoconstriction and promote pro\u2011inflammatory cytokine release.",
+      "population": "Patients with myocarditis"
+    },
+    {
+      "category": "Warning",
+      "text": "In heart\u2011failure patients with preserved left\u2011ventricular systolic function (e.g., restrictive cardiomyopathy, amyloid heart disease, constrictive pericarditis, hypertrophic subaortic stenosis) digoxin may reduce cardiac output and should generally be avoided.",
+      "population": "Patients with preserved LV systolic function"
+    },
+    {
+      "category": "Warning",
+      "text": "Hypocalcemia can nullify digoxin\u2019s inotropic effect; therapy may be ineffective until calcium is corrected.",
+      "population": "Patients with hypocalcemia"
+    },
+    {
+      "category": "Warning",
+      "text": "Hypothyroidism reduces digoxin requirements; hyperthyroidism, hypermetabolic states, or hyperoxia may render digoxin less effective.",
+      "population": "Patients with thyroid disorders or hypermetabolic states"
+    },
+    {
+      "category": "Dosage",
+      "text": "Initial dosing is individualized based on age, lean body weight, renal function, and concomitant drugs; loading dose (if used) is half the total dose followed by two quarter\u2011doses 6\u20138\u202fh apart.",
+      "population": "All patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "Oral loading dose: 5\u201310\u202fyears\u202f=\u202f20\u201345\u202f\u00b5g/kg total; >10\u202fyears\u202f=\u202f10\u201315\u202f\u00b5g/kg total.",
+      "population": "Patients \u22655\u202fyears"
+    },
+    {
+      "category": "Dosage",
+      "text": "Maintenance dose for adults and children >10\u202fyears with normal renal function: 3.4\u20135.1\u202f\u00b5g/kg/day once daily; dose adjustments are made according to lean body weight and creatinine clearance (see dosing tables).",
+      "population": "Adults and children >10\u202fyears"
+    },
+    {
+      "category": "Dosage",
+      "text": "Pediatric maintenance (5\u201310\u202fyears) is 3.2\u20136.4\u202f\u00b5g/kg per dose given twice daily; dosing tables provide adjustments for lean body weight and renal function.",
+      "population": "Children 5\u201310\u202fyears"
+    },
+    {
+      "category": "Dosage",
+      "text": "Serum digoxin <0.5\u202fng/mL may be sub\u2011therapeutic; >2\u202fng/mL is associated with toxicity without added benefit. Levels should be drawn just before the next dose (or \u22656\u202fh after the last dose).",
+      "population": "All patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "When switching from IV to oral digoxin, account for oral bioavailability (60\u201380%); e.g., 100\u202f\u00b5g IV \u2248 125\u2013150\u202f\u00b5g oral.",
+      "population": "Patients transitioning formulations"
+    },
+    {
+      "category": "Interaction",
+      "text": "P\u2011glycoprotein inducers or inhibitors can markedly alter digoxin pharmacokinetics; monitor levels and adjust dose accordingly.",
+      "population": "Patients receiving P\u2011gp modulators"
+    },
+    {
+      "category": "Interaction",
+      "text": "Drugs that increase digoxin concentrations >50\u202f% (e.g., amiodarone, clarithromycin, dronedarone, gentamicin, erythromycin, itraconazole, lapatinib, propafenone, quinidine, ranolazine, ritonavir, telaprevir, tetracycline, verapamil) require a 30\u201350\u202f% dose reduction and serum level monitoring.",
+      "population": "Patients on these concomitant drugs"
+    },
+    {
+      "category": "Interaction",
+      "text": "Drugs that increase digoxin concentrations <50\u202f% (e.g., atorvastatin, carvedilol, conivaptan, diltiazem, indomethacin, mirabegron, nefazodone, nifedipine, propantheline, quinine, rabeprazole, saquinavir, spironolactone, telmisartan, ticagrelor, tolvaptan, trimethoprim) generally require a 15\u201330\u202f% dose reduction.",
+      "population": "Patients on these concomitant drugs"
+    },
+    {
+      "category": "Interaction",
+      "text": "Drugs that decrease digoxin levels (e.g., acarbose, activated charcoal, antacids, cholestyramine, metoclopramide, rifampin, St.\u202fJohn\u2019s\u202fWort) may require a 20\u201340\u202f% dose increase.",
+      "population": "Patients on these concomitant drugs"
+    },
+    {
+      "category": "Interaction",
+      "text": "ACE inhibitors, ARBs, NSAIDs, and COX\u20112 inhibitors can reduce renal clearance of digoxin, increasing serum levels; monitor renal function and digoxin concentrations.",
+      "population": "Patients on these agents"
+    },
+    {
+      "category": "Interaction",
+      "text": "Antiarrhythmics (dofetilide, sotalol, dronedarone) have been associated with increased risk of torsades, pro\u2011arrhythmia, or sudden death when combined with digoxin; use with caution and monitor closely.",
+      "population": "Patients receiving these antiarrhythmics"
+    },
+    {
+      "category": "Interaction",
+      "text": "Teriparatide can cause transient hypercalcemia, which may predispose to digoxin toxicity.",
+      "population": "Patients receiving teriparatide"
+    },
+    {
+      "category": "Interaction",
+      "text": "Thyroid hormone replacement for hypothyroidism may increase digoxin dose requirements.",
+      "population": "Hypothyroid patients on levothyroxine"
+    },
+    {
+      "category": "Interaction",
+      "text": "Sympathomimetics (epinephrine, norepinephrine, dopamine) can increase the risk of digoxin\u2011related arrhythmias.",
+      "population": "Patients receiving sympathomimetics"
+    },
+    {
+      "category": "Interaction",
+      "text": "Intravenous calcium administered rapidly can precipitate serious arrhythmias in digoxin\u2011treated patients.",
+      "population": "Patients receiving IV calcium"
+    },
+    {
+      "category": "Interaction",
+      "text": "Beta\u2011blockers and calcium\u2011channel blockers have additive AV\u2011node slowing effects, increasing risk of bradycardia and heart block.",
+      "population": "Patients on beta\u2011blockers or CCBs"
+    },
+    {
+      "category": "Interaction",
+      "text": "Ivabradine may increase bradycardia risk when combined with digoxin.",
+      "population": "Patients on ivabradine"
+    },
+    {
+      "category": "Interaction",
+      "text": "Endogenous digoxin\u2011like immunoreactive substances (DLIS) and some herbal products (e.g., Chan\u202fSu, ginseng, Ashwagandha) can cause false\u2011positive or falsely elevated digoxin assay results; consider alternative assay methods (LC\u2011MS/MS).",
+      "population": "Patients with potential DLIS interference"
+    },
+    {
+      "category": "Geriatric",
+      "text": "Elderly patients have increased susceptibility to digoxin toxicity due to age\u2011related decline in renal function, lower lean body mass, and higher likelihood of electrolyte disturbances; start at lower doses and monitor serum levels closely.",
+      "population": "Older adults"
+    },
+    {
+      "category": "Renal",
+      "text": "Impaired renal function markedly raises digoxin levels; dosing tables adjust maintenance dose according to creatinine clearance (e.g., 10\u202fmL/min \u2192 62.5\u2013125\u202f\u00b5g/day).",
+      "population": "Patients with reduced creatinine clearance"
+    },
+    {
+      "category": "Renal",
+      "text": "Drugs that reduce GFR or tubular secretion (ACE inhibitors, ARBs, NSAIDs) can further decrease digoxin clearance and should prompt dose reduction and level monitoring.",
+      "population": "Patients on renal\u2011affecting drugs"
+    }
+  ]
+}

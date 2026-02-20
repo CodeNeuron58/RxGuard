@@ -1,0 +1,83 @@
+{
+  "id": "amlodipine-fda-label",
+  "drug_name": "Amlodipine",
+  "source": "FDA Label (openFDA)",
+  "publish_date": "20251014",
+  "facts": [
+    {
+      "category": "Contraindication",
+      "text": "Amlodipine besylate tablets are contraindicated in patients with known sensitivity to amlodipine.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Symptomatic hypotension may occur, particularly in patients with severe aortic stenosis; acute hypotension is unlikely due to the drug\u2019s gradual onset.",
+      "population": "Patients with severe aortic stenosis"
+    },
+    {
+      "category": "Warning",
+      "text": "Worsening angina and acute myocardial infarction can develop after initiating or increasing the dose of amlodipine, especially in patients with severe obstructive coronary artery disease.",
+      "population": "Patients with severe obstructive coronary artery disease"
+    },
+    {
+      "category": "Warning",
+      "text": "Because amlodipine is extensively metabolized by the liver and its half\u2011life is prolonged in hepatic impairment, titrate slowly in patients with severe hepatic impairment.",
+      "population": "Patients with severe hepatic impairment"
+    },
+    {
+      "category": "Dosage",
+      "text": "Adult recommended starting dose is 5\u202fmg once daily; maximum dose is 10\u202fmg once daily. Small, fragile, elderly patients or those with hepatic insufficiency may start at 2.5\u202fmg once daily.",
+      "population": "Adults"
+    },
+    {
+      "category": "Dosage",
+      "text": "When titrating, wait 7\u201314\u202fdays between dose adjustments; more rapid titration is permissible if the patient is closely monitored.",
+      "population": "Adults"
+    },
+    {
+      "category": "Dosage",
+      "text": "For chronic stable or vasospastic angina, the dose range is 5\u201310\u202fmg once daily; a lower dose is suggested for elderly or hepatic\u2011insufficient patients, with most requiring 10\u202fmg for adequate effect.",
+      "population": "Adults with angina"
+    },
+    {
+      "category": "Dosage",
+      "text": "For coronary artery disease, the recommended dose is 5\u201310\u202fmg once daily; the majority of patients required 10\u202fmg in clinical studies.",
+      "population": "Adults with coronary artery disease"
+    },
+    {
+      "category": "Dosage",
+      "text": "Pediatric patients (ages 6\u201317\u202fyears) receive 2.5\u20135\u202fmg once daily for hypertension; doses >5\u202fmg daily have not been studied in this population.",
+      "population": "Children 6\u201317\u202fyears"
+    },
+    {
+      "category": "Geriatric",
+      "text": "Elderly patients (\u226565\u202fyears) have a 40\u201360\u202f% increase in AUC due to decreased clearance; start at the low end of the dosing range and adjust cautiously.",
+      "population": "Elderly patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "Co\u2011administration with moderate or strong CYP3A inhibitors increases amlodipine exposure; consider dose reduction and monitor for hypotension and edema.",
+      "population": "Patients receiving CYP3A inhibitors"
+    },
+    {
+      "category": "Interaction",
+      "text": "CYP3A inducers may reduce amlodipine efficacy; blood pressure should be closely monitored when co\u2011administered.",
+      "population": "Patients receiving CYP3A inducers"
+    },
+    {
+      "category": "Interaction",
+      "text": "When combined with sildenafil, monitor for hypotension.",
+      "population": "Patients receiving sildenafil"
+    },
+    {
+      "category": "Interaction",
+      "text": "Amlodipine increases systemic exposure of simvastatin; limit simvastatin dose to \u226420\u202fmg daily.",
+      "population": "Patients receiving simvastatin"
+    },
+    {
+      "category": "Interaction",
+      "text": "Amlodipine may increase exposure of cyclosporine or tacrolimus; monitor trough levels and adjust immunosuppressant doses as needed.",
+      "population": "Patients receiving cyclosporine or tacrolimus"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "id": "levothyroxine-fda-label",
+  "drug_name": "Levothyroxine",
+  "source": "FDA Label (openFDA)",
+  "publish_date": "20230722",
+  "facts": [
+    {
+      "category": "Contraindication",
+      "text": "Levothyroxine sodium tablets are contraindicated in patients with uncorrected adrenal insufficiency.",
+      "population": "Patients with uncorrected adrenal insufficiency"
+    },
+    {
+      "category": "Warning",
+      "text": "Thyroid hormones, including levothyroxine, must not be used for obesity treatment or weight loss; doses beyond physiological replacement can cause life\u2011threatening toxicity, especially when combined with sympathomimetic (anorectic) agents.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Over\u2011 or under\u2011treatment can adversely affect growth, development, cardiovascular function, bone metabolism, reproductive function, cognition, gastrointestinal function, and glucose/lipid metabolism.",
+      "population": "Adults and pediatric patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Elderly patients and those with underlying cardiovascular disease are at increased risk of cardiac adverse reactions (e.g., atrial fibrillation, angina, arrhythmias). Initiate therapy at lower than full replacement doses and monitor closely.",
+      "population": "Elderly and patients with cardiovascular disease"
+    },
+    {
+      "category": "Warning",
+      "text": "Levothyroxine should not be used to treat myxedema coma; intravenous thyroid hormone formulations are required.",
+      "population": "Patients in myxedema coma"
+    },
+    {
+      "category": "Warning",
+      "text": "In patients with adrenal insufficiency, initiating levothyroxine before glucocorticoid replacement can precipitate acute adrenal crisis.",
+      "population": "Patients with adrenal insufficiency"
+    },
+    {
+      "category": "Warning",
+      "text": "Levothyroxine therapy may worsen glycemic control in diabetes mellitus, potentially increasing insulin or antidiabetic drug requirements.",
+      "population": "Patients with diabetes mellitus"
+    },
+    {
+      "category": "Warning",
+      "text": "Over\u2011replacement can decrease bone mineral density, especially in post\u2011menopausal women, by increasing bone resorption.",
+      "population": "Post\u2011menopausal women and other patients at risk for osteoporosis"
+    },
+    {
+      "category": "Warning",
+      "text": "The product contains FD&C Yellow No.\u202f5 (tartrazine), which may cause allergic reactions (including bronchial asthma) in susceptible individuals, particularly those with aspirin hypersensitivity.",
+      "population": "Individuals sensitive to tartrazine"
+    },
+    {
+      "category": "Dosage",
+      "text": "Administer once daily on an empty stomach, 30\u201360\u202fmin before breakfast with a full glass of water; separate from interfering drugs by at least 4\u202fhours.",
+      "population": "All patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "Adult primary hypothyroidism: starting dose \u22481.6\u202f\u00b5g/kg/day (full replacement). Titrate by 12.5\u201325\u202f\u00b5g every 4\u20136\u202fweeks based on serum TSH (or free\u2011T4 for secondary/tertiary hypothyroidism) until euthyroid.",
+      "population": "Adults with primary hypothyroidism"
+    },
+    {
+      "category": "Dosage",
+      "text": "Adults at risk for atrial fibrillation or with cardiac disease: start with a lower dose (<1.6\u202f\u00b5g/kg/day) and titrate every 6\u20138\u202fweeks.",
+      "population": "Adults with cardiac risk"
+    },
+    {
+      "category": "Dosage",
+      "text": "Geriatric patients: initiate with a lower than full replacement dose (<1.6\u202f\u00b5g/kg/day) and titrate slowly.",
+      "population": "Geriatric patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "Pediatric dosing (per kg body weight): 0\u20113\u202fmo 10\u201115\u202f\u00b5g/kg/day; 3\u20116\u202fmo 8\u201110\u202f\u00b5g/kg/day; 6\u201112\u202fmo 6\u20118\u202f\u00b5g/kg/day; 1\u20115\u202fyr 5\u20116\u202f\u00b5g/kg/day; 6\u201112\u202fyr 4\u20115\u202f\u00b5g/kg/day; >12\u202fyr (incomplete growth) 2\u20113\u202f\u00b5g/kg/day; >12\u202fyr (complete growth) 1.6\u202f\u00b5g/kg/day. Adjust every 2\u202fweeks based on TSH/free\u2011T4.",
+      "population": "Pediatric patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "Pregnant patients with pre\u2011existing hypothyroidism: increase dose by 12.5\u201325\u202f\u00b5g/day once pregnancy is confirmed; monitor TSH each trimester and adjust to keep TSH within trimester\u2011specific reference range. Reduce to pre\u2011pregnancy dose after delivery.",
+      "population": "Pregnant patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "Soybean flour, cottonseed meal, walnuts, and high\u2011fiber foods bind levothyroxine and decrease its absorption; grapefruit juice may delay absorption and reduce bioavailability.",
+      "population": "All patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "Concomitant sympathomimetic (anorectic) agents increase risk of severe toxicity when levothyroxine is taken in supratherapeutic doses.",
+      "population": "Patients using sympathomimetic weight\u2011loss drugs"
+    },
+    {
+      "category": "Interaction",
+      "text": "Thyroid hormone accelerates glucocorticoid clearance; glucocorticoid replacement should precede levothyroxine initiation in adrenal\u2011insufficient patients.",
+      "population": "Patients with adrenal insufficiency"
+    },
+    {
+      "category": "Interaction",
+      "text": "Changes in thyroxine\u2011binding globulin (TBG) affect interpretation of total T4/T3 assays; conditions that increase TBG (pregnancy, estrogen therapy, acute intermittent porphyria) raise total hormone levels, while conditions that decrease TBG (nephrosis, severe hypoproteinemia, severe liver disease, acromegaly, androgens, corticosteroids) lower them. Measure free\u2011T4 or calculate free\u2011T4 index when TBG is abnormal.",
+      "population": "Patients with altered TBG states"
+    },
+    {
+      "category": "Renal",
+      "text": "Nephrosis decreases TBG concentration, which can lower total T4/T3 levels and complicate laboratory monitoring of levothyroxine therapy.",
+      "population": "Patients with nephrotic syndrome"
+    }
+  ]
+}

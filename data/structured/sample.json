@@ -1,0 +1,26 @@
+[
+    {
+        "id": "lisinopril-contraindications-angioedema",
+        "drug_name": "Lisinopril",
+        "category": "Contraindication",
+        "fact": "Lisinopril is contraindicated in patients with a history of angioedema related to previous ACE inhibitor therapy.",
+        "source": "FDA Label - Lisinopril, Section 4",
+        "population": "History of Angioedema"
+    },
+    {
+        "id": "metformin-renal-contraindication",
+        "drug_name": "Metformin",
+        "category": "Contraindication",
+        "fact": "Metformin is contraindicated in patients with severe renal impairment (eGFR below 30 mL/min/1.73 m2).",
+        "source": "FDA Label - Metformin, Section 2.3",
+        "population": "eGFR < 30"
+    },
+    {
+        "id": "ibuprofen-ckd-warning",
+        "drug_name": "Ibuprofen",
+        "category": "Warning",
+        "fact": "NSAIDs, including Ibuprofen, can cause a dose-dependent reduction in prostaglandin formation and precipitate renal decompensation in patients with renal impairment.",
+        "source": "FDA Label - Ibuprofen, Section 5.3",
+        "population": "Renal Impairment"
+    }
+]

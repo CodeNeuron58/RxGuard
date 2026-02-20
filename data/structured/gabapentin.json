@@ -1,0 +1,68 @@
+{
+  "id": "gabapentin-fda-label",
+  "drug_name": "Gabapentin",
+  "source": "FDA Label (openFDA)",
+  "publish_date": "20240402",
+  "facts": [
+    {
+      "category": "Contraindication",
+      "text": "Gabapentin is contraindicated in patients who have demonstrated hypersensitivity to gabapentin or any of its ingredients.",
+      "population": "General"
+    },
+    {
+      "category": "Warning",
+      "text": "Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS)/multiorgan hypersensitivity may be fatal or life\u2011threatening; discontinue gabapentin if signs such as fever, rash, lymphadenopathy, or organ involvement are present and an alternative etiology cannot be established.",
+      "population": "General"
+    },
+    {
+      "category": "Warning",
+      "text": "Anaphylaxis and angioedema can occur after the first dose or at any time; patients should stop gabapentin immediately and seek emergency medical care.",
+      "population": "General"
+    },
+    {
+      "category": "Warning",
+      "text": "Gabapentin may impair driving, operating heavy machinery, and cause somnolence, sedation, or dizziness; patients should not drive or use complex machinery until they have sufficient experience to assess their ability.",
+      "population": "General"
+    },
+    {
+      "category": "Warning",
+      "text": "Abrupt discontinuation of gabapentin can increase seizure frequency or precipitate status epilepticus; taper the drug rather than stopping suddenly.",
+      "population": "Patients with seizure disorders"
+    },
+    {
+      "category": "Warning",
+      "text": "Antiepileptic drugs, including gabapentin, increase the risk of suicidal thoughts or behavior; monitor patients for depression, suicidal ideation, or mood changes.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Serious or fatal respiratory depression has been reported when gabapentin is used with CNS depressants (e.g., opioids) or in patients with underlying respiratory impairment; monitor closely and consider initiating at a low dose.",
+      "population": "Patients receiving CNS depressants or with respiratory disease"
+    },
+    {
+      "category": "Warning",
+      "text": "Neuropsychiatric adverse reactions have been observed in children 3\u201312\u202fyears old (emotional lability, hostility, thought disorder, hyperkinesia); monitor pediatric patients for these effects.",
+      "population": "Pediatric patients (3\u201112\u202fyears) with epilepsy"
+    },
+    {
+      "category": "Warning",
+      "text": "Preclinical studies showed increased pancreatic acinar cell tumors in rats; clinical significance in humans is unknown.",
+      "population": "General"
+    },
+    {
+      "category": "Warning",
+      "text": "Sudden and unexplained deaths have been reported in epilepsy patients treated with gabapentin; incidence is within the range reported for epilepsy populations not receiving gabapentin.",
+      "population": "Epilepsy patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "Concomitant use of gabapentin with morphine or other opioids may increase gabapentin plasma concentrations, potentially requiring dose adjustment.",
+      "population": "Patients receiving opioids"
+    },
+    {
+      "category": "Interaction",
+      "text": "Co\u2011administration with other central nervous system depressants (e.g., benzodiazepines, barbiturates) can potentiate CNS depression, somnolence, and respiratory depression.",
+      "population": "Patients receiving CNS depressants"
+    }
+  ]
+}

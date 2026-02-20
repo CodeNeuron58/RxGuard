@@ -1,0 +1,133 @@
+{
+  "id": "lisinopril-fda-label",
+  "drug_name": "Lisinopril",
+  "source": "FDA Label (openFDA)",
+  "publish_date": "20230629",
+  "facts": [
+    {
+      "category": "Contraindication",
+      "text": "Hypersensitivity to any component of the lisinopril/hydrochlorothiazide tablet.",
+      "population": "All patients"
+    },
+    {
+      "category": "Contraindication",
+      "text": "History of angioedema related to previous ACE\u2011inhibitor therapy, hereditary or idiopathic angioedema.",
+      "population": "All patients"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Anuria or hypersensitivity to sulfonamide\u2011derived drugs (due to the hydrochlorothiazide component).",
+      "population": "Patients with anuria or sulfonamide allergy"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Concomitant use of neprilysin inhibitors (e.g., sacubitril) or administration within 36\u202fhours of switching to or from sacubitril/valsartan.",
+      "population": "All patients"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Coadministration of aliskiren in patients with diabetes.",
+      "population": "Diabetic patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Angioedema of the face, lips, tongue, glottis or larynx may occur at any time; higher incidence in Black patients; can be fatal due to airway obstruction. Discontinue immediately and provide airway management.",
+      "population": "All patients, especially Black patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Intestinal angioedema presenting with abdominal pain, nausea or vomiting; resolves after stopping the drug.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Anaphylactoid reactions reported during hymenoptera venom desensitization, high\u2011flux dialysis, or LDL\u2011apheresis; may be life\u2011threatening. Stop the drug and treat aggressively.",
+      "population": "Patients undergoing desensitization, dialysis, or apheresis"
+    },
+    {
+      "category": "Warning",
+      "text": "Excessive hypotension, especially in volume\u2011depleted, diuretic\u2011treated, or dialysis patients; syncope reported (0.8% combination, 0.1% lisinopril alone). Monitor blood pressure and consider volume expansion.",
+      "population": "Patients on diuretics, dialysis, or with severe CHF"
+    },
+    {
+      "category": "Warning",
+      "text": "Rare neutropenia/agranulocytosis; consider periodic white\u2011blood\u2011cell monitoring in patients with collagen\u2011vascular disease or renal disease.",
+      "population": "Patients with collagen\u2011vascular disease or renal impairment"
+    },
+    {
+      "category": "Warning",
+      "text": "Rare hepatic injury (cholestatic jaundice, hepatitis, fulminant necrosis). Discontinue if jaundice or marked liver\u2011enzyme elevations occur.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Hydrochlorothiazide may cause acute transient myopia and secondary angle\u2011closure glaucoma; discontinue the thiazide component promptly if visual symptoms develop.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Fetal toxicity when used in the second or third trimester; can cause oligohydramnios, fetal renal failure, lung hypoplasia, skeletal deformations, neonatal hypotension, anuria, renal failure, or death. Discontinue immediately if pregnancy is detected.",
+      "population": "Pregnant women (\u22652nd trimester)"
+    },
+    {
+      "category": "Dosage",
+      "text": "Lisinopril monotherapy: 10\u201380\u202fmg once daily. Hydrochlorothiazide monotherapy: 12.5\u201350\u202fmg daily.",
+      "population": "Adults"
+    },
+    {
+      "category": "Dosage",
+      "text": "Combination therapy: lisinopril 10\u201380\u202fmg with hydrochlorothiazide 6.25\u201350\u202fmg. Initial doses 10\u201112.5\u202fmg or 20\u201112.5\u202fmg; increase hydrochlorothiazide no sooner than 2\u20133\u202fweeks. Maximum dose 80\u202fmg/50\u202fmg.",
+      "population": "Adults requiring combination therapy"
+    },
+    {
+      "category": "Dosage",
+      "text": "No dose adjustment required if creatinine clearance >30\u202fmL/min/1.73\u202fm\u00b2 (serum creatinine \u22643\u202fmg/dL). In severe renal impairment, avoid the combination and use a loop diuretic instead.",
+      "population": "Patients with renal impairment"
+    },
+    {
+      "category": "Geriatric",
+      "text": "Elderly patients exhibit ~120% higher AUC for lisinopril and ~80% higher AUC for hydrochlorothiazide; start at the low end of the dosing range and assess renal function before titration.",
+      "population": "Patients \u226565\u202fyears"
+    },
+    {
+      "category": "Renal",
+      "text": "Hydrochlorothiazide may precipitate azotemia in severe renal disease; monitor renal function. NSAIDs co\u2011administered with ACE inhibitors can cause acute renal failure, especially in elderly, volume\u2011depleted, or renally compromised patients; monitor renal function periodically.",
+      "population": "Patients with renal disease, elderly, or volume depletion"
+    },
+    {
+      "category": "Interaction",
+      "text": "Non\u2011steroidal anti\u2011inflammatory drugs (including COX\u20112 inhibitors) may attenuate the antihypertensive effect of lisinopril and worsen renal function; monitor blood pressure and renal parameters.",
+      "population": "All patients taking NSAIDs"
+    },
+    {
+      "category": "Interaction",
+      "text": "Dual blockade of the renin\u2011angiotensin system (ACE inhibitor + ARB or aliskiren) increases risk of hypotension, hyperkalemia, and acute kidney injury; avoid combined use.",
+      "population": "Patients on other RAS blockers"
+    },
+    {
+      "category": "Interaction",
+      "text": "Potassium\u2011sparing diuretics, potassium supplements, or salt substitutes can cause hyperkalemia when used with lisinopril; monitor serum potassium.",
+      "population": "All patients, especially those on potassium\u2011sparing agents"
+    },
+    {
+      "category": "Interaction",
+      "text": "Lithium clearance is reduced; serum lithium levels may rise to toxic levels. Monitor lithium concentrations frequently if co\u2011administered.",
+      "population": "Patients receiving lithium"
+    },
+    {
+      "category": "Interaction",
+      "text": "mTOR inhibitors (temsirolimus, sirolimus, everolimus) increase the risk of angioedema when combined with lisinopril.",
+      "population": "Patients on mTOR inhibitors"
+    },
+    {
+      "category": "Interaction",
+      "text": "Neprilysin inhibitors increase the risk of angioedema when combined with lisinopril; avoid co\u2011administration.",
+      "population": "Patients on neprilysin inhibitors"
+    },
+    {
+      "category": "Interaction",
+      "text": "Aliskiren is contraindicated with lisinopril/hydrochlorothiazide in diabetic patients; avoid co\u2011administration.",
+      "population": "Diabetic patients"
+    }
+  ]
+}

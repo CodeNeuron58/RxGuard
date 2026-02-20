@@ -1,0 +1,143 @@
+{
+  "id": "warfarin-fda-label",
+  "drug_name": "Warfarin",
+  "source": "FDA Label (openFDA)",
+  "publish_date": "20250617",
+  "facts": [
+    {
+      "category": "Contraindication",
+      "text": "Pregnancy is a contraindication for warfarin sodium except in women with mechanical heart valves who are at high risk of thromboembolism.",
+      "population": "Pregnant women"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Patients with hemorrhagic tendencies or blood dyscrasias (e.g., active GI, GU, or respiratory tract ulceration/bleeding, CNS hemorrhage, cerebral aneurysm, pericardial effusion, bacterial endocarditis) must not receive warfarin.",
+      "population": "Patients with bleeding disorders"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Recent or planned central nervous system or eye surgery, or traumatic surgery with large open surfaces, contraindicates warfarin use.",
+      "population": "Surgical patients"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Threatened abortion, eclampsia, and preeclampsia are contraindications for warfarin therapy.",
+      "population": "Pregnant women with obstetric complications"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Unsupervised patients with conditions that may lead to poor compliance are contraindicated for warfarin therapy.",
+      "population": "Patients unable to adhere to therapy"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Spinal puncture or other diagnostic/therapeutic procedures with a risk of uncontrollable bleeding are contraindications.",
+      "population": "Patients undergoing neuraxial procedures"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Known hypersensitivity to warfarin or any component of the product (including anaphylaxis) is a contraindication.",
+      "population": "Patients with drug allergy"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Major regional or lumbar block anesthesia and malignant hypertension are contraindications for warfarin use.",
+      "population": "Patients receiving regional anesthesia or with severe hypertension"
+    },
+    {
+      "category": "Warning",
+      "text": "Warfarin can cause major or fatal bleeding; regular INR monitoring is required, and patients should be educated on bleeding signs and prevention measures.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Tissue necrosis or gangrene (<0.1% incidence) may occur, often within days of therapy initiation; discontinue warfarin if necrosis is observed.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Calciphylaxis, a potentially fatal condition, has been reported in patients with and without end\u2011stage renal disease; discontinue warfarin if diagnosed.",
+      "population": "Patients with renal disease or calciphylaxis"
+    },
+    {
+      "category": "Warning",
+      "text": "Acute kidney injury may develop during episodes of excessive anticoagulation and hematuria; monitor INR more frequently in patients with compromised renal function.",
+      "population": "Patients with renal impairment"
+    },
+    {
+      "category": "Warning",
+      "text": "Systemic atheroemboli and cholesterol microemboli (including \u201cpurple toe\u201d syndrome) can occur; discontinue warfarin if observed.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Warfarin should not be used as initial therapy in patients with heparin\u2011induced thrombocytopenia (HIT) or HITTS; consider warfarin only after platelet count normalizes.",
+      "population": "Patients with HIT/HITTS"
+    },
+    {
+      "category": "Dosage",
+      "text": "Dosing must be individualized based on INR response; typical initial dose (genotype unknown) is 2\u20135\u202fmg once daily, with maintenance 2\u201310\u202fmg daily. Target INR is 2.0\u20133.0 (\u22482.5) for most indications.",
+      "population": "All patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "Genotype\u2011guided dosing (CYP2C9 and VKORC1) can refine initial dose selection; specific dose ranges are provided for common genotype combinations.",
+      "population": "Patients with known CYP2C9/VKORC1 genotype"
+    },
+    {
+      "category": "Dosage",
+      "text": "No dose adjustment is required for renal failure, but INR should be monitored more frequently in patients with renal impairment.",
+      "population": "Patients with renal failure"
+    },
+    {
+      "category": "Dosage",
+      "text": "If a dose is missed, take it as soon as remembered on the same day; do not double the next day's dose.",
+      "population": "All patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "For dental or surgical procedures, obtain an INR immediately beforehand; consider holding or reducing warfarin to keep INR at the low end of therapeutic range for minimally invasive procedures.",
+      "population": "Patients undergoing procedures"
+    },
+    {
+      "category": "Dosage",
+      "text": "When converting from heparin, overlap warfarin with heparin for 4\u20135 days and until INR is therapeutic; monitor INR 5\u202fh after IV heparin bolus, 4\u202fh after IV infusion stop, or 24\u202fh after subcutaneous dose.",
+      "population": "Patients switching anticoagulants"
+    },
+    {
+      "category": "Interaction",
+      "text": "Concomitant drugs that increase bleeding risk (antibiotics, antifungals, herbal products, CYP2C9/1A2/3A4 inhibitors or inducers) can markedly alter INR; monitor INR closely when such agents are started, stopped, or dose\u2011changed.",
+      "population": "All patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "Heparin raises INR; when warfarin and heparin are co\u2011administered, INR monitoring is required as described in conversion guidance.",
+      "population": "Patients receiving heparin"
+    },
+    {
+      "category": "Interaction",
+      "text": "Dietary vitamin K intake and gastrointestinal conditions (e.g., diarrhea, malabsorption) affect INR; increased vitamin K intake or deficiency can decrease or increase INR respectively.",
+      "population": "All patients"
+    },
+    {
+      "category": "Geriatric",
+      "text": "Elderly patients (\u226565\u202fy) may exhibit greater INR response; consider lower initiation and maintenance doses and more frequent INR monitoring. Warfarin is contraindicated in unsupervised senile patients.",
+      "population": "Older adults"
+    },
+    {
+      "category": "Geriatric",
+      "text": "Clinical trials showed no overall difference in efficacy or safety between patients \u226565\u202fy and younger patients, but increased sensitivity cannot be ruled out.",
+      "population": "Older adults"
+    },
+    {
+      "category": "Renal",
+      "text": "Acute kidney injury has been reported, especially in patients with pre\u2011existing renal disease or excessive anticoagulation; monitor INR more often in this group.",
+      "population": "Patients with renal impairment"
+    },
+    {
+      "category": "Renal",
+      "text": "No specific dose reduction is required for chronic renal failure; therapeutic INR targets remain the same.",
+      "population": "Patients with chronic renal failure"
+    }
+  ]
+}

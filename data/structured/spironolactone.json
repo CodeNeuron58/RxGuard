@@ -1,0 +1,113 @@
+{
+  "id": "spironolactone-fda-label",
+  "drug_name": "Spironolactone",
+  "source": "FDA Label (openFDA)",
+  "publish_date": "20250113",
+  "facts": [
+    {
+      "category": "Contraindication",
+      "text": "Spironolactone is contraindicated in patients with hyperkalemia.",
+      "population": "patients"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Spironolactone is contraindicated in patients with Addison\u2019s disease.",
+      "population": "patients"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Spironolactone is contraindicated when used concomitantly with eplerenone.",
+      "population": "patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Hyperkalemia may occur; monitor serum potassium within 1 week of initiation or dose change and regularly thereafter, especially with renal impairment or potassium\u2011raising drugs.",
+      "population": "all patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Excessive diuresis can cause hypotension, dehydration, and worsening renal function; monitor volume status and renal function periodically.",
+      "population": "patients at risk of volume depletion"
+    },
+    {
+      "category": "Warning",
+      "text": "Spironolactone can cause electrolyte disturbances (hyponatremia, hypomagnesemia, hypocalcemia, hypochloremic alkalosis) and hyperglycemia; monitor electrolytes, uric acid, and blood glucose periodically.",
+      "population": "all patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Gynecomastia may develop in ~9% of male heart\u2011failure patients on ~26\u202fmg daily; risk increases with dose and duration, usually reversible after discontinuation.",
+      "population": "male patients"
+    },
+    {
+      "category": "Dosage",
+      "text": "Heart Failure: start 25\u202fmg once daily if serum K\u207a \u22645.0\u202fmEq/L and eGFR >50\u202fmL/min/1.73\u202fm\u00b2; may increase to 50\u202fmg daily; reduce to every other day if hyperkalemia develops.",
+      "population": "patients with heart failure"
+    },
+    {
+      "category": "Dosage",
+      "text": "Heart Failure: if eGFR 30\u201350\u202fmL/min/1.73\u202fm\u00b2, consider 25\u202fmg every other day as initial dose.",
+      "population": "patients with moderate renal impairment"
+    },
+    {
+      "category": "Dosage",
+      "text": "Essential Hypertension: initiate 25\u2013100\u202fmg daily (single or divided doses); titrate at 2\u2011week intervals; doses >100\u202fmg/day provide no additional BP benefit.",
+      "population": "patients with hypertension"
+    },
+    {
+      "category": "Dosage",
+      "text": "Edema: initiate in hospital, 100\u202fmg daily (single or divided); may range 25\u2013200\u202fmg daily; when used as sole diuretic, give at least 5 days before dose increase.",
+      "population": "patients with edema"
+    },
+    {
+      "category": "Dosage",
+      "text": "Primary Hyperaldosteronism (pre\u2011surgery): 100\u2013400\u202fmg daily; for non\u2011surgical patients, use the lowest effective dose for maintenance.",
+      "population": "patients with primary hyperaldosteronism"
+    },
+    {
+      "category": "Dosage",
+      "text": "Spironolactone tablets may be taken with or without food, but should be taken consistently with respect to meals.",
+      "population": "all patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "Concomitant potassium supplements or potassium\u2011raising drugs (ACE inhibitors, ARBs, NSAIDs, heparin, TMP) increase risk of severe hyperkalemia; consider discontinuing potassium supplements and monitor serum K\u207a.",
+      "population": "patients receiving potassium\u2011increasing agents"
+    },
+    {
+      "category": "Interaction",
+      "text": "Lithium clearance is reduced, raising lithium toxicity risk; monitor lithium levels periodically.",
+      "population": "patients on lithium"
+    },
+    {
+      "category": "Interaction",
+      "text": "NSAIDs may blunt the diuretic, natriuretic, and antihypertensive effects of spironolactone; monitor clinical response when co\u2011administered.",
+      "population": "patients taking NSAIDs"
+    },
+    {
+      "category": "Interaction",
+      "text": "Spironolactone interferes with digoxin radioimmunoassays, causing falsely elevated digoxin levels; use a non\u2011interfering assay.",
+      "population": "patients on digoxin"
+    },
+    {
+      "category": "Interaction",
+      "text": "Concurrent cholestyramine has been associated with hyperkalemic metabolic acidosis.",
+      "population": "patients on cholestyramine"
+    },
+    {
+      "category": "Interaction",
+      "text": "Aspirin may reduce spironolactone efficacy; dose titration and close observation may be required.",
+      "population": "patients on acetylsalicylic acid"
+    },
+    {
+      "category": "Geriatric",
+      "text": "Elderly patients often have reduced renal function; monitor renal function closely when prescribing spironolactone.",
+      "population": "geriatric patients"
+    },
+    {
+      "category": "Renal",
+      "text": "Renal function should be monitored periodically; dose adjustments are recommended for eGFR <50\u202fmL/min/1.73\u202fm\u00b2 (e.g., every\u2011other\u2011day dosing).",
+      "population": "patients with renal impairment"
+    }
+  ]
+}

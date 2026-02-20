@@ -1,0 +1,143 @@
+{
+  "id": "metformin-fda-label",
+  "drug_name": "Metformin",
+  "source": "FDA Label (openFDA)",
+  "publish_date": "20250609",
+  "facts": [
+    {
+      "category": "Contraindication",
+      "text": "Severe renal impairment (eGFR < 30\u202fmL/min/1.73\u202fm\u00b2).",
+      "population": "Patients with eGFR below 30\u202fmL/min/1.73\u202fm\u00b2"
+    },
+    {
+      "category": "Contraindication",
+      "text": "Acute or chronic metabolic acidosis, including diabetic ketoacidosis.",
+      "population": "Patients with metabolic acidosis or DKA"
+    },
+    {
+      "category": "Contraindication",
+      "text": "History of serious hypersensitivity reaction to sitagliptin, metformin, or any excipients (e.g., anaphylaxis, angioedema).",
+      "population": "Patients with prior severe hypersensitivity to the drug or its components"
+    },
+    {
+      "category": "Warning",
+      "text": "Metformin\u2011associated lactic acidosis (MALA) can be fatal; risk factors include renal impairment, age\u202f\u2265\u202f65\u202fyears, contrast imaging, surgery, hypoxic states, excessive alcohol, hepatic impairment, and concomitant drugs that reduce metformin clearance.",
+      "population": "All patients, especially those with listed risk factors"
+    },
+    {
+      "category": "Warning",
+      "text": "Pancreatitis has been reported; discontinue metformin if pancreatitis is suspected.",
+      "population": "Patients with signs or symptoms of acute pancreatitis"
+    },
+    {
+      "category": "Warning",
+      "text": "Heart\u2011failure exacerbation may occur; monitor for signs and symptoms and consider discontinuation if heart failure develops.",
+      "population": "Patients with known or risk factors for heart failure"
+    },
+    {
+      "category": "Warning",
+      "text": "Acute renal failure, sometimes requiring dialysis, has been reported; assess renal function before initiation and at least annually.",
+      "population": "All patients, with more frequent monitoring in the elderly or those at risk"
+    },
+    {
+      "category": "Warning",
+      "text": "Long\u2011term metformin use may lower vitamin\u202fB12 levels; measure B12 every 2\u20133\u202fyears (annually for hematologic parameters).",
+      "population": "Patients on chronic metformin therapy"
+    },
+    {
+      "category": "Warning",
+      "text": "Increased risk of hypoglycemia when combined with insulin or insulin secretagogues; dose reduction of the co\u2011administered agent may be required.",
+      "population": "Patients receiving insulin or sulfonylureas"
+    },
+    {
+      "category": "Warning",
+      "text": "Serious hypersensitivity reactions (anaphylaxis, angioedema, Stevens\u2011Johnson syndrome) have been reported; stop drug immediately if suspected.",
+      "population": "All patients"
+    },
+    {
+      "category": "Warning",
+      "text": "Severe disabling arthralgia and bullous pemphigoid have been reported; consider drug as cause and discontinue if appropriate.",
+      "population": "Patients developing severe joint pain or blistering skin lesions"
+    },
+    {
+      "category": "Dosage",
+      "text": "Take ZITUVIMET (metformin/sitagliptin fixed\u2011dose) orally twice daily with meals; do not split tablets.",
+      "population": "General adult population"
+    },
+    {
+      "category": "Dosage",
+      "text": "Maximum daily dose: 100\u202fmg sitagliptin + 2000\u202fmg metformin HCl.",
+      "population": "General adult population"
+    },
+    {
+      "category": "Dosage",
+      "text": "Starting dose for metformin\u2011na\u00efve patients: 50\u202fmg sitagliptin + 500\u202fmg metformin HCl twice daily, with gradual titration to improve GI tolerance.",
+      "population": "Patients not previously on metformin"
+    },
+    {
+      "category": "Dosage",
+      "text": "Starting dose for patients already on metformin: 50\u202fmg sitagliptin twice daily plus the patient\u2019s current metformin dose (e.g., 850\u202fmg metformin BID \u2192 1000\u202fmg metformin BID).",
+      "population": "Patients already receiving metformin"
+    },
+    {
+      "category": "Dosage",
+      "text": "Assess eGFR before initiation; contraindicated if eGFR <30\u202fmL/min/1.73\u202fm\u00b2; not recommended if eGFR 30\u2011<45\u202fmL/min/1.73\u202fm\u00b2 because sitagliptin dose cannot be reduced.",
+      "population": "Patients with renal impairment"
+    },
+    {
+      "category": "Dosage",
+      "text": "Discontinue ZITUVIMET at the time of, or prior to, iodinated contrast imaging in patients with eGFR 30\u201160\u202fmL/min/1.73\u202fm\u00b2, or with liver disease, alcoholism, or heart failure; re\u2011evaluate eGFR 48\u202fh after procedure before restarting.",
+      "population": "Patients undergoing contrast studies"
+    },
+    {
+      "category": "Geriatric",
+      "text": "Elderly patients (\u226565\u202fyears) should start at the low end of the dosing range and have renal function monitored more frequently due to higher risk of lactic acidosis.",
+      "population": "Patients aged 65\u202fyears and older"
+    },
+    {
+      "category": "Geriatric",
+      "text": "No overall safety or efficacy differences observed for sitagliptin in patients \u226565\u202fyears; insufficient data for metformin alone.",
+      "population": "Patients aged 65\u202fyears and older"
+    },
+    {
+      "category": "Interaction",
+      "text": "Carbonic anhydrase inhibitors (e.g., topiramate, zonisamide, acetazolamide, dichlorphenamide) may increase risk of lactic acidosis; consider more frequent monitoring.",
+      "population": "Patients receiving these agents"
+    },
+    {
+      "category": "Interaction",
+      "text": "Drugs that reduce metformin clearance via OCT2/MATE inhibition (e.g., ranolazine, vandetanib, dolutegravir, cimetidine) may increase metformin exposure and lactic\u2011acidosis risk; evaluate benefit\u2011risk.",
+      "population": "Patients receiving these agents"
+    },
+    {
+      "category": "Interaction",
+      "text": "Alcohol potentiates metformin\u2019s effect on lactate metabolism; advise patients to avoid excessive alcohol intake.",
+      "population": "All patients"
+    },
+    {
+      "category": "Interaction",
+      "text": "Co\u2011administration with insulin or insulin secretagogues increases hypoglycemia risk; dose reduction of the insulin/secretagogue may be needed.",
+      "population": "Patients on insulin or sulfonylureas"
+    },
+    {
+      "category": "Interaction",
+      "text": "Drugs that affect glycemic control (e.g., thiazides, corticosteroids, phenothiazines, thyroid products, estrogens, oral contraceptives, phenytoin, nicotinic acid, sympathomimetics, calcium\u2011channel blockers, isoniazid) may cause hyperglycemia or hypoglycemia when added or withdrawn; monitor glucose closely.",
+      "population": "Patients receiving any of these agents"
+    },
+    {
+      "category": "Renal",
+      "text": "Metformin is primarily excreted unchanged by the kidneys; accumulation and lactic\u2011acidosis risk rise as renal function declines.",
+      "population": "All patients, especially those with impaired renal function"
+    },
+    {
+      "category": "Renal",
+      "text": "Renal function (eGFR) should be assessed before starting therapy and at least annually; more frequent monitoring in elderly or patients at risk for renal decline.",
+      "population": "All patients"
+    },
+    {
+      "category": "Renal",
+      "text": "If acute renal failure or significant eGFR decline occurs, discontinue metformin immediately.",
+      "population": "Patients developing acute renal impairment"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "ibuprofen-fda-label",
+  "drug_name": "Ibuprofen",
+  "source": "FDA Label (openFDA)",
+  "publish_date": "20250401",
+  "facts": [
+    {
+      "category": "Warning",
+      "text": "Severe allergic reactions (rash, facial swelling, asthma, hives, skin reddening, shock, blisters) may occur, especially in individuals allergic to aspirin. Stop use and seek medical help immediately if symptoms appear.",
+      "population": "All patients, heightened risk in aspirin\u2011allergic individuals"
+    },
+    {
+      "category": "Warning",
+      "text": "Ibuprofen (an NSAID) can cause serious stomach bleeding. Risk is increased with higher/longer dosing, concurrent anticoagulant or steroid use, history of ulcers or bleeding, \u22653 alcoholic drinks per day, age\u202f\u2265\u202f60, or use of other NSAIDs.",
+      "population": "All patients; higher risk in elderly and those with GI risk factors"
+    },
+    {
+      "category": "Warning",
+      "text": "NSAIDs (except aspirin) raise the risk of heart attack, heart failure, and stroke; risk rises with higher or prolonged use. Do not use if you have had a prior allergic reaction to any pain/fever reducer or if you are peri\u2011operative for heart surgery.",
+      "population": "All patients; especially those with cardiovascular disease"
+    },
+    {
+      "category": "Interaction",
+      "text": "Ibuprofen may diminish the cardioprotective effect of low\u2011dose aspirin taken for heart attack or stroke prevention.",
+      "population": "Patients taking low\u2011dose aspirin for cardiovascular protection"
+    },
+    {
+      "category": "Interaction",
+      "text": "Concurrent use of other prescription or non\u2011prescription NSAIDs (e.g., aspirin, naproxen) increases risk of GI bleeding and cardiovascular events.",
+      "population": "Patients using multiple NSAIDs"
+    },
+    {
+      "category": "Geriatric",
+      "text": "Patients aged 60\u202fyears or older have an increased risk of stomach bleeding and should use the lowest effective dose for the shortest duration possible.",
+      "population": "Adults \u2265\u202f60\u202fyears"
+    },
+    {
+      "category": "Renal",
+      "text": "Patients with pre\u2011existing kidney disease are at higher risk for renal adverse effects; monitor renal function and avoid excessive dosing.",
+      "population": "Patients with renal impairment"
+    },
+    {
+      "category": "Dosage",
+      "text": "Adults and children \u2265\u202f12\u202fyears: 1 tablet every 4\u20136\u202fhours as needed; if pain/fever persists, a second tablet may be taken. Do not exceed 6 tablets in 24\u202fhours unless directed by a physician. Children <\u202f12\u202fyears: consult a doctor before use.",
+      "population": "Adults & children \u2265\u202f12\u202fyears; children <\u202f12\u202fyears"
+    }
+  ]
+}
