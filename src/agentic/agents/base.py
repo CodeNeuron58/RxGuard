@@ -1,19 +1,17 @@
 """Base agent setup: Shared LLM configuration and utilities."""
 
-from langchain_groq import ChatGroq
-from pydantic import SecretStr
+from langchain_ollama import ChatOllama
 from config.settings import settings
 
 
-def get_llm() -> ChatGroq:
-    """Get configured Groq LLM instance.
+def get_llm() -> ChatOllama:
+    """Get configured Ollama LLM instance.
     
-    Uses settings from config for model name, temperature, and max tokens.
+    Uses settings from config for model name and temperature.
     """
-    return ChatGroq(
+    return ChatOllama(
         model=settings.model_name,
         temperature=settings.temperature,
-        # max_tokens=settings.max_tokens,
-        api_key=SecretStr(settings.GROQ_API_KEY),
+        # base_url=settings.base_url,
         streaming=True,
     )

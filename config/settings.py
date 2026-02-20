@@ -17,9 +17,9 @@ class Settings(BaseSettings):
     )
     
     # === LLM CONFIGURATION ===
-    GROQ_API_KEY: str = Field(default="",description="Groq API key")
-    model_name: str = "openai/gpt-oss-120b"
+    model_name: str = "alibayram/medgemma:4b"
     temperature: float = 0.1  # Low for clinical precision
+    # base_url: str = "http://localhost:11434" # Default Ollama URL
     # max_tokens: int = 2000
     
     # === RAG CONFIGURATION ===

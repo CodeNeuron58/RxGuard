@@ -66,8 +66,8 @@ def research_agent_node(state: RxGuardState, config: RunnableConfig) -> RxGuardS
     current_step.status = "in_progress"
     
     # RATE LIMITING: Sleep to avoid 429s from Groq
-    import time
-    time.sleep(2.0)
+    # import time
+    # time.sleep(2.0)
     
     # 1. Generate Query
     patient_profile = state["patient_profile"]
