@@ -78,7 +78,7 @@ graph TD
 *   **Primary LLM**: MedGemma-4b (for clinical reasoning).
 *   **Validation**: [Pydantic](https://docs.pydantic.dev/).
 *   **Vector Database**: FAISS CPU.
-*   **Embeddings**: HuggingFace (`sentence-transformers/all-MiniLM-L6-v2`).
+*   **Embeddings**: HuggingFace (`google/embeddinggemma-300m`).
 *   **Frontend**: Streamlit.
 
 ---

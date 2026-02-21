@@ -280,7 +280,7 @@ def main():
             "65M, Stage 3 CKD, severe back pain. Plan: Ibuprofen 800mg TID x5 days.",
             "55F, high cholesterol, respiratory infection. Plan: Atorvastatin 40mg daily and Clarithromycin 500mg BID.",
             "45M, Hypertension, history of ACE-inhibitor induced angioedema. Plan: Lisinopril 10mg daily.",
-            "28F, 16 weeks pregnant, history of DVT. Plan: Warfarin 5mg daily.",
+            "30M, generalized anxiety disorder, no other health conditions. Plan: Gabapentin 300mg TID.",
             "50M, severe renal impairment (eGFR 25), Type 2 Diabetes. Plan: Metformin 1000mg BID."
         ]
         
@@ -294,7 +294,8 @@ def main():
         st.caption("Temp: 0.1 (clinical precision)")
         
         # Check vectorstore
-        vs_path = Path("data/vectorstore/guidelines_v1")
+        from config.settings import settings
+        vs_path = Path(settings.VECTOR_STORE_PATH)
         if vs_path.exists():
             st.success("✅ Vectorstore ready")
         else:

@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     # max_tokens: int = 2000
     
     # === RAG CONFIGURATION ===
-    EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
+    EMBEDDING_MODEL: str = "google/embeddinggemma-300m"
     VECTOR_STORE_PATH: str = "./data/vectorstore"
     CHUNK_SIZE: int = 512
     CHUNK_OVERLAP: int = 50
