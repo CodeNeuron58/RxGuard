@@ -278,9 +278,10 @@ def main():
         st.header("📖 Examples")
         examples = [
             "65M, Stage 3 CKD, severe back pain. Plan: Ibuprofen 800mg TID x5 days.",
-            "72F, Atrial fibrillation on Warfarin, headache. Plan: Aspirin 325mg.",
-            "45F, Type 2 Diabetes, HbA1c 8.2%. Plan: Metformin 500mg BID.",
-            "28F, 16 weeks pregnant, acne. Plan: Isotretinoin 20mg daily.",
+            "55F, high cholesterol, respiratory infection. Plan: Atorvastatin 40mg daily and Clarithromycin 500mg BID.",
+            "45M, Hypertension, history of ACE-inhibitor induced angioedema. Plan: Lisinopril 10mg daily.",
+            "28F, 16 weeks pregnant, history of DVT. Plan: Warfarin 5mg daily.",
+            "50M, severe renal impairment (eGFR 25), Type 2 Diabetes. Plan: Metformin 1000mg BID."
         ]
         
         for i, ex in enumerate(examples, 1):

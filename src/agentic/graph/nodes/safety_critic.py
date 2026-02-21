@@ -32,7 +32,7 @@ CRITIQUE GUIDELINES:
    - The explanation is factually incorrect.
 
 OUTPUT INSTRUCTIONS:
-- If APPROVE: Set decision to "APPROVE" and safety_flag to the appropriate level (e.g., "critical" for high risk).
+- If APPROVE: Set decision to "APPROVE" and populate safety_flag with the appropriate level ("info", "warning", "critical") and reason.
 - If REJECT: Set decision to "REJECT" and provide specific feedback on what to fix.
 
 PATIENT CONTEXT:
