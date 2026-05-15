@@ -1,7 +1,7 @@
 [project]
-name = "medgemma-challenge"
+name = "rxguard"
 version = "3.0.1"
-description = "Add your description here"
+description = "AI-Powered Clinical Medication Safety Checker"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
