@@ -103,7 +103,7 @@ cd RxGuard
 uv sync
 
 # 3. Pull the recommended local LLM via Ollama
-# (You can change the target model in src/config/settings.py)
+# (You can change the target model in config/settings.py)
 ollama pull alibayram/medgemma:4b
 
 # 4. Generate the FAISS Vector Database (Required first run)
@@ -129,7 +129,6 @@ A clean, modular, production-ready layout:
 │   │   ├── graph/      # LangGraph orchestration (edges, nodes, builder.py)
 │   │   ├── state/      # Pydantic Schemas defining our StateGraph
 │   │   └── utils/      # Logging and common tools
-│   ├── ui/             # Streamlit specific components (if decoupled)
 │   └── app.py          # Streamlit UI entrypoint & rendering logic
 ├── pyproject.toml      # Dependency definitions
 └── README.md
