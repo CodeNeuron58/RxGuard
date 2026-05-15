@@ -13,7 +13,6 @@ Prerequisites:
 import argparse
 import json
 import logging
-import time
 from pathlib import Path
 from typing import Dict, Any, List
 
@@ -23,12 +22,8 @@ from langchain_core.output_parsers import JsonOutputParser
 from pydantic import BaseModel, Field
 
 # Import project modules
-import sys
-import os
-sys.path.append(os.getcwd())  # Ensure src is in path
 
 from src.agentic.agents.base import get_llm
-from config.settings import settings
 
 # Configure Logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

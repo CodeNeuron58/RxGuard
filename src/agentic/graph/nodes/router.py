@@ -4,7 +4,6 @@ from typing import Literal
 
 from src.agentic.state.schemas import RxGuardState
 from src.agentic.utils import get_logger
-from config.settings import settings
 
 logger = get_logger(__name__)
 

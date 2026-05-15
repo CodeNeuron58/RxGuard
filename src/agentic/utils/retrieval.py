@@ -31,7 +31,7 @@ def get_vectorstore():
         
         if vectorstore_path.exists():
             # Load existing vectorstore
-            logger.info(f"Loading faiss with AVX2 support.")
+            logger.info("Loading faiss with AVX2 support.")
             try:
                 _vectorstore = FAISS.load_local(
                     str(vectorstore_path),

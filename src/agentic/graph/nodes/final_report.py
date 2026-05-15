@@ -12,7 +12,7 @@ def generate_clinical_report(patient_profile, proposed_medication, risk_analysis
     # Handle None cases (e.g. forced exit from loop)
     if not safety_flag:
         flag_level = "WARNING"
-        flag_reason = "Analysis inconclusive: Maximum research attempts reached without final approval."
+        # Analysis inconclusive: Maximum research attempts reached without final approval.
     else:
         flag_level = safety_flag.get("level", "INFO").upper()
         # flag_reason = safety_flag.get("reason", "") # Not used in current template but good to have

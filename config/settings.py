@@ -5,7 +5,6 @@ Rule: If it might change between environments, it belongs here.
 
 from functools import lru_cache
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import Field
 
 class Settings(BaseSettings):
     """All configuration loaded from environment variables."""

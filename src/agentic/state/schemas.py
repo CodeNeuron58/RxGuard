@@ -1,6 +1,6 @@
 """State schemas: Graph state and LLM output contracts."""
 
-from typing import Optional, List, Dict, Any, Literal
+from typing import Optional, List, Literal
 from pydantic import BaseModel, Field
 from typing import TypedDict
 

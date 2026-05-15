@@ -4,9 +4,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.runnables import RunnableConfig
 from src.agentic.state.schemas import RxGuardState, ExtractionResult
-from config.settings import settings
 from src.agentic.agents.base import get_llm
-from src.agentic.utils import get_logger, log_clinical_event
+from src.agentic.utils import get_logger
 
 logger = get_logger(__name__)
 

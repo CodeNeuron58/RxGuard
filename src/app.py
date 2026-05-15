@@ -12,14 +12,11 @@ st.set_page_config(
 )
 
 # Import after page config
-import sys
-import asyncio
-import os
-# Add project root to sys.path to allow absolute imports from 'src'
-sys.path.append(str(Path(__file__).parent.parent))
+import sys  # noqa: E402
+import asyncio  # noqa: E402
 
-from src.agentic.state.schemas import RxGuardState, create_initial_state
-from src.agentic.utils.logging_config import configure_logging, get_logger
+from src.agentic.state import create_initial_state  # noqa: E402
+from src.agentic.utils import configure_logging, get_logger  # noqa: E402
 
 # Setup logging
 configure_logging("INFO")
@@ -105,7 +102,6 @@ def run_clinical_analysis(raw_note: str):
                         
                     elif node_name == "research_agent":
                         # Check which step just finished
-                        idx = final_state.get("current_step_index", 0)
                         # The update happens *after* the step is done, so idx might be next step
                         # But we can look at the log
                         log = state_update.get("research_log", [])
@@ -124,7 +120,7 @@ def run_clinical_analysis(raw_note: str):
                         if decision == "APPROVE":
                             status.write("🛡️ Safety Critic: APPROVED")
                         else:
-                            status.write(f"🛡️ Safety Critic: REJECTED (Looping back...)")
+                            status.write("🛡️ Safety Critic: REJECTED (Looping back...)")
                             
             status.update(label="✅ Clinical Analysis Complete", state="complete", expanded=False)
         
